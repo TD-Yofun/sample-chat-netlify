@@ -1,53 +1,46 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+// base
+import { ref } from "vue";
+
+// component
+import InitModal from "./components/InitModal.vue";
+
+import { get } from "./utils/config-storage";
+import { connect } from "./utils/chat.sdk";
+import backgroundImage from "@/assets/suns-logo.png";
+
+const { src, flow_id } = get();
+const visible = ref(!src && !flow_id);
+const onVisibleChange = (show: boolean) => (visible.value = show);
+if (src && flow_id) connect(src, flow_id);
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <div class="container">
+    <img class="background_img" :src="backgroundImage" />
+    <el-icon class="icon_config" :size="26" @click="() => onVisibleChange(true)"
+      ><Setting
+    /></el-icon>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <InitModal :visible="visible" :on-visable-change="onVisibleChange" />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.container {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.background_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.icon_config {
+  cursor: pointer;
 }
 </style>

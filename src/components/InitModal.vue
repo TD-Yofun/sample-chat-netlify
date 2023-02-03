@@ -1,0 +1,109 @@
+<script setup lang="ts">
+import { ref, reactive, watch, defineProps } from "vue";
+import type { FormRules, FormInstance } from "element-plus";
+
+import { get, save } from "../utils/config-storage";
+import { connect } from "../utils/chat.sdk";
+
+import type { ChatConfigModel } from "../model/ChatConfig";
+
+// props
+const props = defineProps<{
+  visible: boolean;
+  onVisableChange: (visible: boolean) => void;
+}>();
+
+// data
+const ruleFormRef = ref<FormInstance>();
+const form = reactive<ChatConfigModel>({
+  src: "",
+  flow_id: "",
+});
+const rules = reactive<FormRules>({
+  src: [
+    { required: true, message: "Please input src value", trigger: "blur" },
+    {
+      validator: (rule, value: string, callback) => {
+        if (!value.trim()) {
+          callback(new Error("Please input src value"));
+        } else if (!/^https:\/\//.test(value)) {
+          callback(new Error("Please enter the correct url address"));
+        } else {
+          callback();
+        }
+      },
+      trigger: "blur",
+    },
+  ],
+  flow_id: [
+    { required: true, message: "Please input flow id value", trigger: "blur" },
+    {
+      validator: (rule, value: string, callback) => {
+        if (!value.trim()) {
+          callback(new Error("Please input flow id value"));
+        } else {
+          callback();
+        }
+      },
+      trigger: "blur",
+    },
+  ],
+});
+
+// watch
+watch(
+  () => props.visible,
+  (value) => {
+    if (value) {
+      const { src, flow_id } = get();
+      form.src = src;
+      form.flow_id = flow_id;
+      ruleFormRef.value?.clearValidate();
+    }
+  }
+);
+
+// methods
+const start = async () => {
+  const valid = await ruleFormRef.value?.validate();
+  if (!valid) return;
+  const { src, flow_id = "" } = form;
+  connect(src!, flow_id!);
+  save(src!, flow_id!);
+  props.onVisableChange(false);
+};
+</script>
+
+<template>
+  <el-dialog
+    v-model="props.visible"
+    title="Configuration"
+    width="50%"
+    :show-close="false"
+    :close-on-click-modal="false"
+  >
+    <el-form
+      ref="ruleFormRef"
+      :model="form"
+      label-width="80px"
+      :rules="rules"
+      label-position="left"
+    >
+      <el-form-item label="JS src" prop="src">
+        <el-input v-model="form.src" />
+      </el-form-item>
+
+      <el-form-item label="Flow id" prop="flow_id">
+        <el-input v-model="form.flow_id" />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="() => props.onVisableChange(false)"
+          >Cancel</el-button
+        >
+        <el-button type="primary" @click="() => start()"> Start </el-button>
+      </span>
+    </template>
+  </el-dialog>
+</template>
