@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "start": "vite",
-    "build:stg": "run-p type-check build-only",
-    "build:qa": "run-p type-check build-only",
+    "build": "run-p type-check build:stg build:qa",
+    "build:stg": "vite build -m stg",
+    "build:qa": "vite build -m qa",
     "preview": "vite preview",
-    "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },

@@ -10,6 +10,9 @@ export default ({ mode }: { mode: string }) => {
   const env = loadEnv(mode, process.cwd());
 
   return defineConfig({
+    build: {
+      outDir: env.VITE_APP_ENV,
+    },
     plugins: [
       vue(),
       createHtmlPlugin({
