@@ -10,7 +10,7 @@ import { connect } from "./utils/chat.sdk";
 import { URL_CONFIG } from "@/constant";
 import backgroundImage from "@/assets/suns-logo.png";
 
-const env = process.env.VITE_APP_ENV;
+const env = import.meta.env.VITE_APP_ENV;
 const src = URL_CONFIG[env];
 
 const flow_id = get();
