@@ -5,12 +5,16 @@ import { ref } from "vue";
 // component
 import InitModal from "./components/InitModal.vue";
 
-import { get } from "./utils/config-storage";
+import { get } from "./utils/storage";
 import { connect } from "./utils/chat.sdk";
+import { URL_CONFIG } from "@/constant";
 import backgroundImage from "@/assets/suns-logo.png";
 
-const { src, flow_id } = get();
-const visible = ref(!src && !flow_id);
+const env = process.env.VITE_APP_ENV;
+const src = URL_CONFIG[env];
+
+const flow_id = get();
+const visible = ref(!flow_id);
 const onVisibleChange = (show: boolean) => (visible.value = show);
 if (src && flow_id) connect(src, flow_id);
 </script>
@@ -22,7 +26,11 @@ if (src && flow_id) connect(src, flow_id);
       ><Setting
     /></el-icon>
 
-    <InitModal :visible="visible" :on-visable-change="onVisibleChange" />
+    <InitModal
+      :src="src"
+      :visible="visible"
+      :on-visable-change="onVisibleChange"
+    />
   </div>
 </template>
 

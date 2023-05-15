@@ -23,6 +23,9 @@ export default ({ mode }: { mode: string }) => {
         },
       }),
     ],
+    define: {
+      "process.env": env,
+    },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),

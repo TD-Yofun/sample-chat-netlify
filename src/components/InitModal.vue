@@ -2,13 +2,14 @@
 import { ref, reactive, watch, defineProps } from "vue";
 import type { FormRules, FormInstance } from "element-plus";
 
-import { get, save } from "../utils/config-storage";
+import { get, save } from "@/utils/storage";
 import { connect } from "../utils/chat.sdk";
 
 import type { ChatConfigModel } from "../model/ChatConfig";
 
 // props
 const props = defineProps<{
+  src: string;
   visible: boolean;
   onVisableChange: (visible: boolean) => void;
 }>();
@@ -55,12 +56,13 @@ watch(
   () => props.visible,
   (value) => {
     if (value) {
-      const { src, flow_id } = get();
-      form.src = src;
+      const flow_id = get();
+      form.src = props.src;
       form.flow_id = flow_id;
       ruleFormRef.value?.clearValidate();
     }
-  }
+  },
+  { immediate: true }
 );
 
 // methods
@@ -69,7 +71,7 @@ const start = async () => {
   if (!valid) return;
   const { src, flow_id = "" } = form;
   connect(src!, flow_id!);
-  save(src!, flow_id!);
+  save(flow_id!);
   props.onVisableChange(false);
 };
 </script>
@@ -90,7 +92,7 @@ const start = async () => {
       label-position="left"
     >
       <el-form-item label="JS src" prop="src">
-        <el-input v-model="form.src" />
+        <el-input v-model="form.src" disabled />
       </el-form-item>
 
       <el-form-item label="Flow id" prop="flow_id">
