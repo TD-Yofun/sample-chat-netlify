@@ -10,6 +10,7 @@ export function connect(src: string, flow_id: string) {
     const divContainer = document.createElement("div");
     divContainer.id = node;
     document.body.appendChild(divContainer);
+    // var src = `https://talkdeskchatsdk.svc.talkdeskqa.com/talkdeskchatsdk.js`;
     const script = document.createElement("script");
     const firstScriptTag = document.getElementsByTagName("script")[0];
     script.type = "text/javascript";
@@ -43,10 +44,10 @@ export function connect(src: string, flow_id: string) {
     document,
     "tdWebchat",
     {
-      flowId: flow_id,
+      touchpointId: flow_id,
       accountId: "",
       region: "td-us-1",
     },
-    { enableEmoji: true, enableUserInput: true }
+    { enableEmoji: true, enableUserInput: true, enableAttachments: true }
   );
 }
