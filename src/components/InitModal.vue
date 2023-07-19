@@ -37,11 +37,15 @@ const rules = reactive<FormRules>({
     },
   ],
   flow_id: [
-    { required: true, message: "Please input flow id value", trigger: "blur" },
+    {
+      required: true,
+      message: "Please input touchpoint id value",
+      trigger: "blur",
+    },
     {
       validator: (rule, value: string, callback) => {
         if (!value.trim()) {
-          callback(new Error("Please input flow id value"));
+          callback(new Error("Please input touchpoint id value"));
         } else {
           callback();
         }
@@ -87,15 +91,15 @@ const start = async () => {
     <el-form
       ref="ruleFormRef"
       :model="form"
-      label-width="80px"
+      label-width="120px"
       :rules="rules"
       label-position="left"
     >
-      <el-form-item label="JS src" prop="src">
+      <el-form-item label="JS url" prop="src">
         <el-input v-model="form.src" disabled />
       </el-form-item>
 
-      <el-form-item label="Flow id" prop="flow_id">
+      <el-form-item label="Touchpoint Id" prop="flow_id">
         <el-input v-model="form.flow_id" />
       </el-form-item>
     </el-form>
