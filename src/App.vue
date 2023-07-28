@@ -3,33 +3,60 @@
 import { ref } from "vue";
 
 // component
-import InitModal from "./components/InitModal.vue";
+import ConfigurationModal from "./components/ConfigurationModal.vue";
 
 import { get } from "./utils/storage";
 import { connect } from "./utils/chat.sdk";
-import { URL_CONFIG } from "@/constant";
 import backgroundImage from "@/assets/suns-logo.png";
 
-const env = import.meta.env.VITE_APP_ENV;
-const src = URL_CONFIG[env];
+const src = import.meta.env.VITE_APP_LIB_URL;
+const touchpointId = get();
 
-const flow_id = get();
-const visible = ref(!flow_id);
-const onVisibleChange = (show: boolean) => (visible.value = show);
-if (src && flow_id) connect(src, flow_id);
+const id = ref(touchpointId);
+const visible = ref(!id.value);
+
+const onVisibleChange = ({
+  visible: show,
+  id: tId,
+}: {
+  visible: boolean;
+  id: string;
+}) => {
+  visible.value = show;
+  id.value = tId;
+};
+
+if (src && id.value) connect(src, id.value);
 </script>
 
 <template>
   <div class="container">
     <img class="background_img" :src="backgroundImage" />
-    <el-icon class="icon_config" :size="26" @click="() => onVisibleChange(true)"
-      ><Setting
-    /></el-icon>
 
-    <InitModal
+    <div
+      style="
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <p class="touchpoint" v-if="id">
+        Touchpoint Id: <label>{{ id }}</label>
+      </p>
+
+      <el-icon
+        style="cursor: pointer"
+        :size="26"
+        @click="() => onVisibleChange({ visible: true, id })"
+        ><Setting
+      /></el-icon>
+    </div>
+
+    <configuration-modal
       :src="src"
       :visible="visible"
-      :on-visable-change="onVisibleChange"
+      :on-visible-change="onVisibleChange"
     />
   </div>
 </template>
@@ -48,7 +75,7 @@ if (src && flow_id) connect(src, flow_id);
   transform: translateX(-50%) translateY(-50%);
 }
 
-.icon_config {
-  cursor: pointer;
+.touchpoint {
+  color: #333;
 }
 </style>

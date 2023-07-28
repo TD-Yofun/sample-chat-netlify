@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_APP_ENV: string;
+  readonly VITE_APP_LIB_URL: string;
 }
 
 interface Window {

@@ -1,4 +1,4 @@
 export interface ChatConfigModel {
-  src: string | null;
-  flow_id: string | null;
+  src: string;
+  flow_id: string;
 }

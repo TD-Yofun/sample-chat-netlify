@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, watch, defineProps } from "vue";
+import { ref, reactive, watch, defineProps, toRefs } from "vue";
 import type { FormRules, FormInstance } from "element-plus";
 
 import { get, save } from "@/utils/storage";
@@ -11,8 +11,9 @@ import type { ChatConfigModel } from "../model/ChatConfig";
 const props = defineProps<{
   src: string;
   visible: boolean;
-  onVisableChange: (visible: boolean) => void;
+  onVisibleChange: (params: { visible: boolean; id: string }) => void;
 }>();
+const { src, visible, onVisibleChange } = toRefs(props);
 
 // data
 const ruleFormRef = ref<FormInstance>();
@@ -57,11 +58,11 @@ const rules = reactive<FormRules>({
 
 // watch
 watch(
-  () => props.visible,
+  () => visible,
   (value) => {
     if (value) {
       const flow_id = get();
-      form.src = props.src;
+      form.src = src.value;
       form.flow_id = flow_id;
       ruleFormRef.value?.clearValidate();
     }
@@ -73,16 +74,16 @@ watch(
 const start = async () => {
   const valid = await ruleFormRef.value?.validate();
   if (!valid) return;
-  const { src, flow_id = "" } = form;
-  connect(src!, flow_id!);
-  save(flow_id!);
-  props.onVisableChange(false);
+  const { src, flow_id } = form;
+  connect(src, flow_id);
+  save(flow_id);
+  onVisibleChange.value({ visible: false, id: flow_id });
 };
 </script>
 
 <template>
   <el-dialog
-    v-model="props.visible"
+    v-model="visible"
     title="Configuration"
     width="50%"
     :show-close="false"
@@ -105,7 +106,8 @@ const start = async () => {
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="() => props.onVisableChange(false)"
+        <el-button
+          @click="() => onVisibleChange({ visible: false, id: form.flow_id })"
           >Cancel</el-button
         >
         <el-button type="primary" @click="() => start()"> Start </el-button>
