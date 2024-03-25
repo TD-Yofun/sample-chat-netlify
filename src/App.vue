@@ -1,32 +1,34 @@
 <script setup lang="ts">
 // base
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 // component
 import ConfigurationModal from "./components/ConfigurationModal.vue";
 
 import { get } from "./utils/storage";
 import { connect } from "./utils/chat.sdk";
-import backgroundImage from "@/assets/suns-logo.png";
+import { ENVIRONMENT, isValid } from "./utils/environment";
+import backgroundImage from "@/assets/kirin.png";
+import type { ChatConfigModel } from "./model/ChatConfig";
 
-const src = import.meta.env.VITE_APP_LIB_URL;
-const touchpointId = get();
+const configuration = get();
 
-const id = ref(touchpointId);
-const visible = ref(!id.value);
+const visible = ref(!configuration);
 
-const onVisibleChange = ({
-  visible: show,
-  id: tId,
-}: {
-  visible: boolean;
-  id: string;
-}) => {
-  visible.value = show;
-  id.value = tId;
+if (isValid(configuration)) {
+  connect(ENVIRONMENT[configuration!.environment], configuration!.flow_id);
+}
+
+const configReactive = reactive<Partial<ChatConfigModel>>(configuration || {});
+
+const onCancel = () => {
+  visible.value = false;
 };
-
-if (src && id.value) connect(src, id.value);
+const onConfirm = (value: ChatConfigModel) => {
+  visible.value = false;
+  configReactive.environment = value.environment;
+  configReactive.flow_id = value.flow_id;
+};
 </script>
 
 <template>
@@ -41,22 +43,28 @@ if (src && id.value) connect(src, id.value);
         justify-content: space-between;
       "
     >
-      <p class="touchpoint" v-if="id">
-        Touchpoint Id: <label>{{ id }}</label>
-      </p>
+      <div>
+        <p class="touchpoint" v-if="configReactive.environment">
+          Environment: <label>{{ configReactive.environment }}</label>
+        </p>
+
+        <p class="touchpoint" v-if="configReactive.flow_id">
+          Touchpoint ID: <label>{{ configReactive.flow_id }}</label>
+        </p>
+      </div>
 
       <el-icon
         style="cursor: pointer"
         :size="26"
-        @click="() => onVisibleChange({ visible: true, id })"
+        @click="() => (visible = true)"
         ><Setting
       /></el-icon>
     </div>
 
     <configuration-modal
-      :src="src"
       :visible="visible"
-      :on-visible-change="onVisibleChange"
+      @cancel="onCancel"
+      @confirm="onConfirm"
     />
   </div>
 </template>

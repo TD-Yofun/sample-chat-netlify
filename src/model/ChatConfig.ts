@@ -1,4 +1,4 @@
 export interface ChatConfigModel {
-  src: string;
+  environment: "STG" | "QA" | "PROD";
   flow_id: string;
 }

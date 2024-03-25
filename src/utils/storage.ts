@@ -1,9 +1,16 @@
-const CAHT_FLOW_ID_KEY = "CAHT_FLOW_ID_KEY";
+import type { ChatConfigModel } from "@/model/ChatConfig";
 
-export function get(): string {
-  return localStorage.getItem(CAHT_FLOW_ID_KEY) || "";
+const KEY = "__industries_kirin__";
+
+export function get(): ChatConfigModel | null {
+  const value = localStorage.getItem(KEY) || "";
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    return null;
+  }
 }
 
-export function save(flow_id: string) {
-  localStorage.setItem(CAHT_FLOW_ID_KEY, flow_id);
+export function save(value: ChatConfigModel) {
+  localStorage.setItem(KEY, JSON.stringify(value));
 }

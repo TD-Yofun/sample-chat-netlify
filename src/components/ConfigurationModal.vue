@@ -4,39 +4,25 @@ import type { FormRules, FormInstance } from "element-plus";
 
 import { get, save } from "@/utils/storage";
 import { connect } from "../utils/chat.sdk";
+import { ENVIRONMENT } from "../utils/environment";
 
 import type { ChatConfigModel } from "../model/ChatConfig";
 
 // props
 const props = defineProps<{
-  src: string;
   visible: boolean;
-  onVisibleChange: (params: { visible: boolean; id: string }) => void;
+  onCancel: () => void;
+  onConfirm: (value: ChatConfigModel) => void;
 }>();
-const { src, visible, onVisibleChange } = toRefs(props);
+const { visible, onConfirm, onCancel } = toRefs(props);
 
 // data
 const ruleFormRef = ref<FormInstance>();
 const form = reactive<ChatConfigModel>({
-  src: "",
+  environment: "STG",
   flow_id: "",
 });
 const rules = reactive<FormRules>({
-  src: [
-    { required: true, message: "Please input src value", trigger: "blur" },
-    {
-      validator: (rule, value: string, callback) => {
-        if (!value.trim()) {
-          callback(new Error("Please input src value"));
-        } else if (!/^https:\/\//.test(value)) {
-          callback(new Error("Please enter the correct url address"));
-        } else {
-          callback();
-        }
-      },
-      trigger: "blur",
-    },
-  ],
   flow_id: [
     {
       required: true,
@@ -61,9 +47,9 @@ watch(
   () => visible,
   (value) => {
     if (value) {
-      const flow_id = get();
-      form.src = src.value;
-      form.flow_id = flow_id;
+      const configuration = get();
+      form.environment = configuration?.environment || "STG";
+      form.flow_id = configuration?.flow_id || "";
       ruleFormRef.value?.clearValidate();
     }
   },
@@ -74,10 +60,10 @@ watch(
 const start = async () => {
   const valid = await ruleFormRef.value?.validate();
   if (!valid) return;
-  const { src, flow_id } = form;
-  connect(src, flow_id);
-  save(flow_id);
-  onVisibleChange.value({ visible: false, id: flow_id });
+  const { environment, flow_id } = form;
+  connect(ENVIRONMENT[environment], flow_id);
+  save(form);
+  onConfirm.value(form);
 };
 </script>
 
@@ -96,8 +82,15 @@ const start = async () => {
       :rules="rules"
       label-position="left"
     >
-      <el-form-item label="JS url" prop="src">
-        <el-input v-model="form.src" disabled />
+      <el-form-item label="Environment" prop="environment" :required="true">
+        <el-radio-group v-model="form.environment">
+          <el-radio-button
+            v-for="item in Object.keys(ENVIRONMENT)"
+            :label="item"
+            :key="item"
+            >{{ item }}</el-radio-button
+          >
+        </el-radio-group>
       </el-form-item>
 
       <el-form-item label="Touchpoint Id" prop="flow_id">
@@ -106,10 +99,7 @@ const start = async () => {
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-        <el-button
-          @click="() => onVisibleChange({ visible: false, id: form.flow_id })"
-          >Cancel</el-button
-        >
+        <el-button @click="() => onCancel()">Cancel</el-button>
         <el-button type="primary" @click="() => start()"> Start </el-button>
       </span>
     </template>
