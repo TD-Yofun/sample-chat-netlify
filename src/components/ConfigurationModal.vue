@@ -44,7 +44,7 @@ const rules = reactive<FormRules>({
 
 // watch
 watch(
-  () => visible,
+  visible,
   (value) => {
     if (value) {
       const configuration = get();
