@@ -11,7 +11,21 @@ import { ENVIRONMENT, isValid } from "./utils/environment";
 import backgroundImage from "@/assets/kirin.png";
 import type { ChatConfigModel } from "./model/ChatConfig";
 
-const configuration = get();
+let configuration = get();
+
+if (location.search) {
+  const _configuration = location.search
+    .substr(1)
+    .split("&")
+    .reduce((prev, item) => {
+      const itemArray = item.split("=");
+      prev[itemArray[0]] = itemArray[1];
+      return prev;
+    }, {} as ChatConfigModel);
+  if (isValid(_configuration)) {
+    configuration = _configuration;
+  }
+}
 
 const visible = ref(!configuration);
 
@@ -57,8 +71,9 @@ const onConfirm = (value: ChatConfigModel) => {
         style="cursor: pointer"
         :size="26"
         @click="() => (visible = true)"
-        ><Setting
-      /></el-icon>
+      >
+        <Setting />
+      </el-icon>
     </div>
 
     <configuration-modal
@@ -76,6 +91,7 @@ const onConfirm = (value: ChatConfigModel) => {
   box-sizing: border-box;
   padding: 20px;
 }
+
 .background_img {
   position: absolute;
   top: 50%;
