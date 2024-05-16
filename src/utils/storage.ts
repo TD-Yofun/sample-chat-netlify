@@ -1,16 +1,17 @@
-import type { ChatConfigModel } from "@/model/ChatConfig";
+import { Configuration } from '@/store/configuration-slice';
 
-const KEY = "__industries_kirin__v1__";
+const KEY_OF_CONFIGURATION = '__industries_kirin__v1__';
 
-export function get(): ChatConfigModel | null {
-  const value = localStorage.getItem(KEY) || "";
-  try {
-    return JSON.parse(value);
-  } catch (error) {
-    return null;
-  }
-}
-
-export function save(value: ChatConfigModel) {
-  localStorage.setItem(KEY, JSON.stringify(value));
-}
+export const configurationStorage = {
+  get: (): Configuration | null => {
+    const data = localStorage.getItem(KEY_OF_CONFIGURATION) || '';
+    try {
+      return JSON.parse(data);
+    } catch (error) {
+      return null;
+    }
+  },
+  save: (data: Configuration) => {
+    localStorage.setItem(KEY_OF_CONFIGURATION, JSON.stringify(data));
+  },
+};

@@ -1,0 +1,16 @@
+## <small>0.0.2 (2024-05-16)</small>
+
+- refactor: industries-kirin chat demo ([cd5faa2](https://github.com/TD-Yofun/sample-chat-netlify/commit/cd5faa2))
+- chore: build env file ([b34fd15](https://github.com/TD-Yofun/sample-chat-netlify/commit/b34fd15))
+- chore: init ([d7a9861](https://github.com/TD-Yofun/sample-chat-netlify/commit/d7a9861))
+- chore: init ([20f614a](https://github.com/TD-Yofun/sample-chat-netlify/commit/20f614a))
+- chore: initiate ([54f0018](https://github.com/TD-Yofun/sample-chat-netlify/commit/54f0018))
+- chore: update ([4d59940](https://github.com/TD-Yofun/sample-chat-netlify/commit/4d59940))
+- chore: update ([afdb090](https://github.com/TD-Yofun/sample-chat-netlify/commit/afdb090))
+- chore: update ([3a11df4](https://github.com/TD-Yofun/sample-chat-netlify/commit/3a11df4))
+- chore: update ([edb7f8b](https://github.com/TD-Yofun/sample-chat-netlify/commit/edb7f8b))
+- feat: add Region function ([803a762](https://github.com/TD-Yofun/sample-chat-netlify/commit/803a762))
+- feat: migrate to kirin team ([6fad348](https://github.com/TD-Yofun/sample-chat-netlify/commit/6fad348))
+- feat: support url configuration ([e80a5d4](https://github.com/TD-Yofun/sample-chat-netlify/commit/e80a5d4))
+- fix: update ([74cf1b6](https://github.com/TD-Yofun/sample-chat-netlify/commit/74cf1b6))
+- fix: watch issue ([7f11ff8](https://github.com/TD-Yofun/sample-chat-netlify/commit/7f11ff8))
