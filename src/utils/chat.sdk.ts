@@ -1,6 +1,14 @@
 // @ts-nocheck
+import type { ChatConfigModel } from "@/model/ChatConfig";
+import { ENVIRONMENT, REGION } from "./environment";
 
-export function connect(src: string, flow_id: string) {
+export function connect(
+  environment: ChatConfigModel["environment"],
+  touchpoint_id: string,
+  region: ChatConfigModel["region"]
+) {
+  const src = ENVIRONMENT[environment];
+  region = REGION[region];
   let webchat;
   ((window, document, node, props, configs) => {
     if (window.TalkdeskChatSDK) {
@@ -44,9 +52,9 @@ export function connect(src: string, flow_id: string) {
     document,
     "tdWebchat",
     {
-      touchpointId: flow_id,
+      touchpointId: touchpoint_id,
       accountId: "",
-      region: "td-us-1",
+      region,
     },
     { enableEmoji: true, enableUserInput: true, enableAttachments: true }
   );
