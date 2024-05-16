@@ -1,0 +1,27 @@
+{
+  "github": {
+    "release": true,
+    "tagName": "v${version}",
+    "releaseName": "v${version}",
+    "draft": true,
+    "npm": false,
+    "web": true,
+    "autoGenerate": false
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "in": {
+        "file": "package.json",
+        "type": "application/json"
+      },
+      "out": {
+        "file": "package.json",
+        "type": "application/json"
+      }
+    },
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "ignoreRecommendedBump": true
+    }
+  }
+}
