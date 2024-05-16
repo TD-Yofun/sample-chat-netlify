@@ -169,7 +169,7 @@ const ConfigurationPanel = ({ onClose }: Props) => {
             <>
               <Heading level={responsive([4, 3, 3])}>Chat Widget Parameters</Heading>
               <Box backgroundColor="var(--gray-200)" style={{ borderRadius: '4px' }} padding={3}>
-                <Preview />
+                <Preview format />
               </Box>
             </>
           )}

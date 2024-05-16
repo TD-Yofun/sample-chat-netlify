@@ -1,22 +1,9 @@
-import styled from 'styled-components';
-
 import Flex from '@cobalt/react-flex';
 import { Text } from '@cobalt/react-typography';
 
 import { ENDPOINT, REGION } from '@/constant';
 import { useSelector } from '@/store';
 import { Configuration } from '@/store/configuration-slice';
-
-const Label = styled(Text)`
-  color: var(--gray-600);
-  width: 90px;
-  flex-shrink: 0;
-`;
-
-const Value = styled(Text)`
-  flex-grow: 1;
-  word-break: break-all;
-`;
 
 export function formatConfiguration(data: Configuration) {
   return {
@@ -26,33 +13,40 @@ export function formatConfiguration(data: Configuration) {
   };
 }
 
-const Preview = () => {
+interface Props {
+  format?: boolean;
+}
+
+interface Row {
+  label: string;
+  value: string;
+  direction: 'row' | 'column';
+}
+
+const Preview = ({ format }: Props) => {
   const { data } = useSelector((state) => state.configuration);
 
-  const { region, environment, touchpoint_id } = formatConfiguration(data);
+  const configuration = format ? formatConfiguration(data) : data;
+  const direction = format ? 'column' : 'row';
+
+  const rows: Row[] = Object.entries(configuration)
+    .filter(([_, value]) => !!value)
+    .map(([label, value]) => {
+      return {
+        label,
+        value,
+        direction,
+      };
+    });
 
   return (
     <Flex direction="column" width="100%" gap={3}>
-      {!!region && (
-        <Flex width="100%" gap={1} direction="column">
-          <Label>Region</Label>
-          <Value>{region}</Value>
+      {rows.map((row) => (
+        <Flex key={row.label} direction={row.direction} gap={2}>
+          <Text color="var(--gray-600)">{row.label}:</Text>
+          <Text style={{ wordBreak: 'break-all' }}>{row.value}</Text>
         </Flex>
-      )}
-
-      {!!environment && (
-        <Flex width="100%" gap={1} direction="column">
-          <Label>Url</Label>
-          <Value>{environment}</Value>
-        </Flex>
-      )}
-
-      {!!touchpoint_id && (
-        <Flex width="100%" gap={1} direction="column">
-          <Label>Touchpoint ID</Label>
-          <Value>{touchpoint_id}</Value>
-        </Flex>
-      )}
+      ))}
     </Flex>
   );
 };
