@@ -1108,7 +1108,7 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.13.9", "@babel/runtime@^7.16.3", "@babel/runtime@^7.21.0", "@babel/runtime@^7.23.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.9", "@babel/runtime@^7.16.3", "@babel/runtime@^7.21.0", "@babel/runtime@^7.23.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.24.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.5.tgz#230946857c053a36ccc66e1dd03b17dd0c4ed02c"
   integrity sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==
@@ -1148,6 +1148,288 @@
     "@babel/helper-string-parser" "^7.24.1"
     "@babel/helper-validator-identifier" "^7.24.5"
     to-fast-properties "^2.0.0"
+
+"@cobalt-marketplace/react-copy-to-clipboard@^1.0.2":
+  version "1.0.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-copy-to-clipboard/-/react-copy-to-clipboard-1.0.2.tgz#34ebef5700abe1a02ea9048e51bd7b9db6660884"
+  integrity sha512-UxvQTQY3y0+z3BKWrRnz36ywLgmeEpyqGsx0+sONj/xcE+zMkU6iQ7pEPNB2Ym3QDA0wXsjcseu/+vm544rvug==
+  dependencies:
+    react-transition-group "^4.4.1"
+
+"@cobalt-marketplace/react-form-control@^1.0.5":
+  version "1.0.5"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-form-control/-/react-form-control-1.0.5.tgz#c031d8140e2cefe385f3320db1b555f91282c2cb"
+  integrity sha512-JQHUM4TwcJRzvoKAnNkAbnnVXUeLksVO38hzEDga/4l3QeqgntmsYBMo1jwtWHT+vgGGXOVDVl3IE5N7J0XbtA==
+
+"@cobalt-marketplace/react-labeled-icon@^2.0.1":
+  version "2.0.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-labeled-icon/-/react-labeled-icon-2.0.1.tgz#353d92700500b968416ae6896db4063d43fc774b"
+  integrity sha512-0Pi8V3F5u7OU2MfKIFF/aoZMY0iu2NYAhlX6jTG+KjkqJZU9rAsHtsau3CBJ+hdt4B169AogEfSuyuQf0oCfjg==
+
+"@cobalt/css-box@^1.1.3":
+  version "1.1.3"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-box/-/css-box-1.1.3.tgz#9a5c98ca257d4f4ae1b1bae0224a1e8a4cd7bd5e"
+  integrity sha512-zFrBqHuEXVSo7lC+1L5sFw+K0sdlsx/ySzffgFj8bKfbMOJ4Xase3kRr3e5Ho8NT7ZdoO/dsElHRJ/JbxCSSZw==
+
+"@cobalt/css-button@^1.3.1":
+  version "1.3.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-button/-/css-button-1.3.1.tgz#5921f0c78e9bdc2e29ded92fcd08c06db8d5d8ea"
+  integrity sha512-D/q+3g78VR6lmzVW0wsOSCItubWepbiyhWEgl7GhdpCeTX3rfo3OW1SbP8KNCK22I91BdGEAkgWrzDN2M/NrTw==
+
+"@cobalt/css-checkbox@^1.3.0":
+  version "1.3.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-checkbox/-/css-checkbox-1.3.0.tgz#5e37ebb1265703f0469c2a6fbcb1f8b0c4a323b8"
+  integrity sha512-oLRk8xbbVWM12NKsr/7yn06QyoublCw1oI7y8nSkvx5UhAE2647rxp/RXkrvDZx2M26meUX+z31ulzIeKDoxOw==
+
+"@cobalt/css-color-input@^1.1.2":
+  version "1.1.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-color-input/-/css-color-input-1.1.2.tgz#81ecf6e48c6ddf39b0b804d03de17aa8ba2677f7"
+  integrity sha512-D0dMJUlsJg3cEK8ERRK/v1AEQCU3+lsc530wqtIcPM00yVgQ4psBbYJ3DoaUFnygIKB9jnmDHXBo/3imKUsU+Q==
+
+"@cobalt/css-core@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-core/-/css-core-1.2.0.tgz#8ad883216decd148b45ce1e60878778bf87df8e0"
+  integrity sha512-9LA8d6iBnotoUmZGAysdUwOTtzMtPuz0mNVVdfVbNX1L/x2BDXgHht6RuO/zyK4F+7LDF1LtPcm6X65UtHZy+A==
+
+"@cobalt/css-divider@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-divider/-/css-divider-1.2.0.tgz#a0fa9565c1075a765347b334f46dd8f75a3e9791"
+  integrity sha512-5ea/wi/OiVi1M2bHDA51DdBZIKB/MuKZE/lIw2zYE0mKLRO0joHMD7m/dcMyCcX9KFO93OifCulb7CYLrx7QKg==
+
+"@cobalt/css-flex@^1.6.0":
+  version "1.6.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-flex/-/css-flex-1.6.0.tgz#2ac3b70ee45c10dcb3b08fa6694ff7be5e334002"
+  integrity sha512-VfiFTBr0dCbG+LmG4+fV3yy20MGscbZkjyBY8mTdGvoMn6etXgxqoTGwOnvaXvydiBl1G/KSjp2uRAro+9h+Pg==
+
+"@cobalt/css-icon@^2.1.0":
+  version "2.1.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-icon/-/css-icon-2.1.0.tgz#41c4b1ebb39ce692394d32f82dd80779e7f0dd8e"
+  integrity sha512-KOy5MOFQVEXSdqaURCMiFm2RLOMG1IlV+t3EPF4reUtjr+2dXj952WoV7G0ZEPUoZqpvYJgduiw7Nz+iKtsuaQ==
+
+"@cobalt/css-input@^1.5.0":
+  version "1.5.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-input/-/css-input-1.5.0.tgz#d5ca5809a442f214e2c3584a6e676f5b54d44075"
+  integrity sha512-sJuw22UH089whNgmeSgpitfeiCWoLgzRk9mN8Y0MFF6FOChZP22e4ioux0Q3kkeyTIx2K6kd9rd4KPKzumEgcg==
+
+"@cobalt/css-label@^1.2.5":
+  version "1.2.5"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-label/-/css-label-1.2.5.tgz#c58cee4fac00505701244822f8ca15006031fcb3"
+  integrity sha512-Aevo1PmCIfzur5cVFYP24J59HGzHk+OxlbKyqTg41FP0+OVXXaUAnnMkVrKC9VzX73uNrrcB52Q7baOT6b9fpw==
+
+"@cobalt/css-link@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-link/-/css-link-1.2.0.tgz#e89b542db958bbe02567dedd453605eefa524610"
+  integrity sha512-EVlZ3yYE524vZDv5qmPNLVqHmZ5H9P/37lQY0Z4iADhmd4dIgRMBv/fdqFAABkxbSGgPXb0KFGBlDmUH4GMBDA==
+
+"@cobalt/css-list@^1.5.1":
+  version "1.5.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-list/-/css-list-1.5.1.tgz#6e87e84b8bed3f1c8f5ad96bacbdc9a20144280b"
+  integrity sha512-XDoHLVfvR3ixsKwkjBAObR7ovoH8JtQLgmCpR3UbtJ+VCI+5FwZSqiv41TFZDBbytSP97zDqC0g9ahOenLpLMg==
+
+"@cobalt/css-message@^1.1.1":
+  version "1.1.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-message/-/css-message-1.1.1.tgz#bd3b28647b5b4de16234ddc37521769c50cd00c9"
+  integrity sha512-Z6Gt3UBh9/kONoi77R2z5nFUmPyrvTIJ9BvBKGcH5A6VummCsmYcKcUbnzPG8xfW119FkLAsWWvf2XFs5rQw5A==
+
+"@cobalt/css-panel@^1.1.0":
+  version "1.1.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-panel/-/css-panel-1.1.0.tgz#e0c866afc5f62e2a24780427bdc459d0821d63f2"
+  integrity sha512-yVUNCLRUNxk7LChFSMKK5a8DQ4LaDBDJO8KdbllzLWtIMFzAptqFgRUcQxnRWF/DH8ej8Z6TELesJaNLbEtgKA==
+
+"@cobalt/css-radio@^1.3.0":
+  version "1.3.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-radio/-/css-radio-1.3.0.tgz#4f3458aaca486d652a1b21a331f028b26ac985c5"
+  integrity sha512-a38sKnbeKEd6Olvc1XLDjun4YPORcpJbUdWfuyDj8NyZ8V8qgIMU/E0OSIXncs8XtEuoqZzntB/fOzCtAqEZUQ==
+
+"@cobalt/css-required@^1.2.4":
+  version "1.2.4"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-required/-/css-required-1.2.4.tgz#94efe8fe36c158986c791ab00fd1878e9e2a049a"
+  integrity sha512-2Lv+aetbckoVPrH6UNR+bBQg8uwXmBXw3kvGtvMQkoIUeSX7GMMHKDLTg1hNdCr3s3MoUmxbJW1n4cbaNRzLww==
+
+"@cobalt/css-spinner@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-spinner/-/css-spinner-1.2.0.tgz#84bf4a5e350b113cd1138de7ec3babc08e48d3d9"
+  integrity sha512-pNUQnklYpa8Y7czKdJ4U2dNQONhHeDWMlAMoSvYx7QwkNTS6w012vzByWLzSqA607+EjWPUkphOAKPLA6CBbng==
+
+"@cobalt/css-tag@^1.7.1":
+  version "1.7.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-tag/-/css-tag-1.7.1.tgz#23ac868817619fa290447502789213ac3a151107"
+  integrity sha512-+UzZvLGvBY8Yw2+5q4qlyAM4vTmezj6ZrsKSPRhldBcJJdojlNZ0ZW0RjLTS4Xj5I4uGpWPh06TeaAvPd6ZZXA==
+
+"@cobalt/css-typography@^1.6.0":
+  version "1.6.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/css-typography/-/css-typography-1.6.0.tgz#c1e6ef405f3db3bf40f1fbb00dcafe30f4663f48"
+  integrity sha512-kkP2qymP67WfJacbycii2v6NP4N5KLJoiXNMfTWC+nJAsYTiu8fCm75JulgbJs+mneADfZDpmwz29e1Dz1GUpg==
+
+"@cobalt/react-box@^1.2.8":
+  version "1.2.8"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-box/-/react-box-1.2.8.tgz#0b73a5682206861d1c9678f1b40c3ac588259c77"
+  integrity sha512-+P6pl4zkdZGGFNgfUPadGMdBdFODEPuU4z3BiqITwxCIOprpYDt8m0E1y/ZLjeRS2UBky/IHURQEZWqX2rxC/A==
+  dependencies:
+    "@cobalt/css-box" "^1.1.3"
+    "@cobalt/react-responsive-value-hook" "^2.0.2"
+    classcat "^4.0.2"
+
+"@cobalt/react-button@^1.5.1":
+  version "1.5.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-button/-/react-button-1.5.1.tgz#5e0e63a0a213d60d0bb50f312bcc6d5e1a567cdf"
+  integrity sha512-qKEVhViUzMkAB2diUrTiTpvQDTSTEbmKH+EZHv/eDf4K2kf9lMSgkcwkmoTMid/5rnnmgbAWeju9/RBKzmzUaw==
+  dependencies:
+    "@cobalt/css-button" "^1.3.1"
+    classcat "^4.0.2"
+
+"@cobalt/react-divider@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-divider/-/react-divider-1.2.0.tgz#49702624da670130b28f3102fd4773a160db3258"
+  integrity sha512-3GlFReybAKxG94IcM6MmX+ZfTEhsPDc+r7g3QQdxlDfwotJtbo13t5L3sTSPF2h7BsGueYj0DSjUXvF0VGIG8g==
+  dependencies:
+    "@cobalt/css-divider" "^1.2.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-fake-input@^1.4.1":
+  version "1.4.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-fake-input/-/react-fake-input-1.4.1.tgz#46489b8f6c181a8d794cd5f02f4d556787c1d2fe"
+  integrity sha512-cSI2vCKOQNc+V7S10camyCW37+fqIpzngCIVDJrdokP1UB/03pv1/VvRDkU4KBpibuRLi5apz3hxGKfDXHQKAg==
+  dependencies:
+    "@cobalt/css-input" "^1.5.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-flex@^2.0.0":
+  version "2.0.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-flex/-/react-flex-2.0.0.tgz#bdbe661529e5b10ada2f3e19a1f6ffa519d812d6"
+  integrity sha512-FAvhYRQe6i2mG8iwjqC4qfFpq4XIweEBfhXD9czLE3G6cf+CDZDqr0XQ4PsNowaEWBTmwiYJWM1+drNT9XxdqA==
+  dependencies:
+    "@cobalt/css-flex" "^1.6.0"
+    "@cobalt/react-responsive-value-hook" "^2.0.2"
+    classcat "^4.0.2"
+
+"@cobalt/react-icon@^1.59.0":
+  version "1.61.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-icon/-/react-icon-1.61.0.tgz#9a21f899bfe64af609389c6dc1a6bd05f8aa26e1"
+  integrity sha512-y5uq9H/VGy49O7EWROe68uEj8Yu8/re7Vbk9DxbnBHJzotyPbzdjQbx/nIVyEJn1xJzVIG7X4o2gUbtKFDJ+cg==
+  dependencies:
+    "@cobalt/css-icon" "^2.1.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-input@^1.4.0":
+  version "1.4.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-input/-/react-input-1.4.0.tgz#46a56bc98341e2fdef53dc2309a3d70e2e636d3b"
+  integrity sha512-gc22FE6pgjDrz7Q71/CkssYtO5EcV3Ey62AR1iRm2sv1VZuIit1my+/D/7tawj/IiNnXg1sol4GIg7YnNVNMXg==
+  dependencies:
+    "@cobalt/css-checkbox" "^1.3.0"
+    "@cobalt/css-color-input" "^1.1.2"
+    "@cobalt/css-input" "^1.5.0"
+    "@cobalt/css-radio" "^1.3.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-label@^1.1.10":
+  version "1.1.10"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-label/-/react-label-1.1.10.tgz#26d7af344483cd5197981c589b465a02a4147933"
+  integrity sha512-zegHxbr+E45HZdygZLKdQxRrn5Dj0HMxrE6YO+rcSyWujfng7Ybie2buYmsjX+5eWo8SPClqLWx1zXZdj1Xerg==
+  dependencies:
+    "@cobalt/css-label" "^1.2.5"
+    classcat "^4.0.2"
+
+"@cobalt/react-link@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-link/-/react-link-1.2.0.tgz#836a7f47b047dd0afe69923c4660d179febdfb93"
+  integrity sha512-XEmMph4Cykh5G4xtoTYX6seiKVnOfkxojnGbzeu1sVGh8qB64Paxd1x/F+ToetN2uB/8uq4u3fWoDt/dhGaCrA==
+  dependencies:
+    "@cobalt/css-link" "^1.2.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-list@^1.4.1":
+  version "1.4.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-list/-/react-list-1.4.1.tgz#1349d1ad6e60c4317b115afafc2e0cfd30d43fe1"
+  integrity sha512-QUkKCF0DcfkC9BnQoyHNlldqmQ0kD38I/Bb3A4XnIxwvnwlu9pZ6WsSDYpLtFFMbUVNhmc9K4yvq8w1LDzMhlQ==
+  dependencies:
+    "@cobalt/css-list" "^1.5.1"
+    classcat "^4.0.2"
+
+"@cobalt/react-message@^1.1.10":
+  version "1.1.10"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-message/-/react-message-1.1.10.tgz#7c2b34569c44632eaedbf5adcf553c04ef9fcd0a"
+  integrity sha512-LQiwDNkA7e0D/+W2fOyeyrFvQbA8gxLV92bS4/JutK/PkJeP1XEThJbMLBHN1WcpzdgQSPsZrwOdWV24uuFJLQ==
+  dependencies:
+    "@cobalt/css-message" "^1.1.1"
+    classcat "^4.0.2"
+
+"@cobalt/react-panel@^1.4.0":
+  version "1.5.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-panel/-/react-panel-1.5.0.tgz#bc6e33aaf3c0a782d27697b828bede04af4da7ca"
+  integrity sha512-BdvQJ8OV48Y8Y5UEjG+fS7N4u5S4EmeJCSlTCy83LapWRBhi4fof0E4riegjHBlwIAMkTIoxrOxaCnB9FrEXBw==
+  dependencies:
+    "@cobalt/css-panel" "^1.1.0"
+    "@reach/rect" "^0.16.0"
+    classcat "^4.0.2"
+    react-transition-group "^4.4.1"
+
+"@cobalt/react-portal-provider@^1.1.1":
+  version "1.1.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-portal-provider/-/react-portal-provider-1.1.1.tgz#6945a9ca32c992c8e647c7e02fcda3d8e4d96a8b"
+  integrity sha512-xrQWCDYSH21TaR0KS9lgR40UbGiwhhmTMUtkJTCO+1E1uF/GtFO/se7z6emicqui/H40MymIwL2Pocluxc+LrA==
+
+"@cobalt/react-required@^1.1.7":
+  version "1.1.9"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-required/-/react-required-1.1.9.tgz#10270dc901993d3b94ab369b55529309e03d240b"
+  integrity sha512-ICdPnwl/n3aRzyzrjirLhiMdG7/6mGDtcJWZSRizmsX8bipdWZeI0+4x0TH29yc42CSHXq5SAcnRxrXwxlVkNw==
+  dependencies:
+    "@cobalt/css-required" "^1.2.4"
+    classcat "^4.0.2"
+
+"@cobalt/react-responsive-value-hook@^2.0.2":
+  version "2.0.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-responsive-value-hook/-/react-responsive-value-hook-2.0.2.tgz#d73599188a3fdcf5fbfc04f52ab86d99ef24b9b4"
+  integrity sha512-yqtNXUpdRzYSL2Aa63L4Jc/UqVeMrkULVIBEllBBfDRbn0L3AoxR5ZrSATaR8ArCI+JqSYcJtKNsYAnyQyWmMA==
+
+"@cobalt/react-spinner@^1.2.0":
+  version "1.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-spinner/-/react-spinner-1.2.0.tgz#418b41f331abb9aa75d7fb9c19d82c3534b2679c"
+  integrity sha512-270o+ujQz4zOfEDNUNtCKzFefWIZSuDE0GvGzruXTDbloXIBTtvKILEVDjusnjrtUmhW5WdonUs4DKeY/TJV6g==
+  dependencies:
+    "@cobalt/css-spinner" "^1.2.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-tag@^1.5.0":
+  version "1.5.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-tag/-/react-tag-1.5.1.tgz#257c038239f9d44fa2a6ea02238e2569e25eda72"
+  integrity sha512-/tRaUj2gmxNpdztCyhLMB4fW7WIyrx5nxePeEbS7fUu2OhnrGRvJt9k1JMM6tE0PdBRaH4Vy4kwOQp/bnmJ6cw==
+  dependencies:
+    "@cobalt/css-tag" "^1.7.1"
+    classcat "^4.0.2"
+
+"@cobalt/react-theme-provider@^2.2.4":
+  version "2.2.4"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-theme-provider/-/react-theme-provider-2.2.4.tgz#200ef16eb7cd5b59a16fd156a91bf245b7623e2f"
+  integrity sha512-QDU6fU25+v1XXeXInjTsKDCGkRisqyQ7mJ72jv/+iC0qDYC7K+PyRG1VgQBUv0+Ho2hWfmxGzYzemWirBMtBFg==
+  dependencies:
+    "@cobalt/css-core" "^1.2.0"
+    "@cobalt/theme-base" "^1.7.1"
+
+"@cobalt/react-typography@^1.6.0":
+  version "1.6.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-typography/-/react-typography-1.6.0.tgz#1c3dc775572ae81a8ae9223590e2f013feb1063a"
+  integrity sha512-eoEbVkwoY7liEfkLh1TuA2TyXrkn84K5w7PEsYjBqaYa7PpfP3Ccwj8ErAbclhekGMaRH/J6hPAQNTDJwTd2WA==
+  dependencies:
+    "@cobalt/css-typography" "^1.6.0"
+    classcat "^4.0.2"
+
+"@cobalt/react-viewport-provider@^1.2.2":
+  version "1.2.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-viewport-provider/-/react-viewport-provider-1.2.2.tgz#1db17908cff74178ae57187c8dc19a2598a2c052"
+  integrity sha512-OVgkKzktbqgIMfDHGGNkfoMZJKCUBYwCOYF+PkqQsOhN3kIcvyb5oqHidk40tjoDWtHE8q+cXEEskR+l7iDndw==
+  dependencies:
+    lodash.throttle "^4.1.1"
+
+"@cobalt/theme-base@^1.7.1":
+  version "1.7.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/theme-base/-/theme-base-1.7.1.tgz#e35025af64f949e569ada578995a7dc9713a54a8"
+  integrity sha512-ugLcnJ/YgK0qxcdMNvdhzJSeX/tqCsYEgvzMGnFX23uwHfi6kZlUW01LtnvLSc+4XOsItgAinHaejc8Q60YaXg==
+
+"@cobalt/theme-light@^2.2.0":
+  version "2.2.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/theme-light/-/theme-light-2.2.0.tgz#99f3253d4a4ffbdd93d064d43b6dd4f22fefcd55"
+  integrity sha512-n2WSjnXhAhY/J573Ef7LMoBv2DfrEReWvFZ3lN6MmZyA2zfUU5mMwco21k1zTxQeMnZeDeyLNVQKOdS16ztHng==
 
 "@emotion/is-prop-valid@1.2.2":
   version "1.2.2"
@@ -1336,6 +1618,60 @@
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
+
+"@industries-packages/react-error-widget@^1.0.9":
+  version "1.0.9"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-error-widget/-/react-error-widget-1.0.9.tgz#0506d33ed6cb55c4dfb71420389e00fb462282ab"
+  integrity sha512-s6/vqJzLSV6mG04tNCegRqckEwHZTqhZyc/zrtwZBTovVTEInlq3W3sLDUclXGOzZYTgR/1ErB6A4QDMouC8xQ==
+  dependencies:
+    "@industries-packages/react-hooks" "^1.0.7"
+
+"@industries-packages/react-hooks@^1.0.7":
+  version "1.0.7"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-hooks/-/react-hooks-1.0.7.tgz#c5267e2c079d40f0f1edfb630ec1d217a9c8f869"
+  integrity sha512-R4uGgR+cIXy4AAzlw5rUKxWjb0c/ygRAaTMYBhFiFvPOsVWnS0+TIPaol+nRlvRDntTv4cBkLuLs8B+7Vea6dA==
+  dependencies:
+    "@industries-packages/utils-emitter" "^1.0.3"
+
+"@industries-packages/react-list-popup@^1.0.2":
+  version "1.0.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-list-popup/-/react-list-popup-1.0.2.tgz#15c7f6b608aa4dea9955efca2f1c84b5066bb726"
+  integrity sha512-/v7H8P8Wzq4uA/oH1lMLQkdySJtP+MNavg15sKSMhspzgujzKWt6Cy8SkaXH9FQHC4bq1o+N0Ox4IYw3LQ7KlA==
+  dependencies:
+    "@industries-packages/react-error-widget" "^1.0.9"
+    "@industries-packages/react-hooks" "^1.0.7"
+    "@industries-packages/react-popup" "^1.0.1"
+    classcat "^5.0.4"
+
+"@industries-packages/react-popup@^1.0.1":
+  version "1.0.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-popup/-/react-popup-1.0.1.tgz#ab5b5ee8e1cc5924924fde8e98080b0d591c2978"
+  integrity sha512-LlY1ub8BuizYAFaGcvui6N86ZOCbTeJUjbWfDjEJj8W4lTP6AAAR5bjQxEiR74u2+38kaWxCGHTJQzS0p16Alg==
+  dependencies:
+    classcat "^5.0.4"
+    react-transition-group "^4.4.5"
+
+"@industries-packages/react-scrollable-shadow@^1.0.1":
+  version "1.0.1"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-scrollable-shadow/-/react-scrollable-shadow-1.0.1.tgz#a883aa46ce9bee47f62f28fc77ddee5bf46df3d4"
+  integrity sha512-KI+c5LmEPcYgnqsKq78RHUq9RfECg0yMtOe+Z8UTL4XascqRDPj/Nq1XDDUoo2aZeyoHEhkkuKjuPmfwR4+9ug==
+  dependencies:
+    classcat "^5.0.4"
+
+"@industries-packages/react-select@^1.0.10":
+  version "1.0.10"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/react-select/-/react-select-1.0.10.tgz#31553d66f63e4fdbc94785b6cafc7ee262f78a05"
+  integrity sha512-UWhHInFIzcT8hmTNkSNm4dW9NkoE6LcUzJw/sh2FIHRjhSIaPJh0XGqp9fISifR74R+7H8MkjP/SO+dlrzK6Dg==
+  dependencies:
+    "@industries-packages/react-error-widget" "^1.0.9"
+    "@industries-packages/react-hooks" "^1.0.7"
+    "@industries-packages/react-popup" "^1.0.1"
+    classcat "^5.0.4"
+
+"@industries-packages/utils-emitter@^1.0.3":
+  version "1.0.3"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@industries-packages/utils-emitter/-/utils-emitter-1.0.3.tgz#c47bb7fbcdc2dabc8a3e47c327bbfa2d42488a8c"
+  integrity sha512-1KXzLTCATEs1PCBkestXbJb2h6DNxDi9+uavu13yUDHsMqPUWDn8cA+6dh4FW9fNZm1SNNJyr51HqA6DG0O9nA==
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
@@ -1558,6 +1894,40 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
+"@reach/observe-rect@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.2.0.tgz#d7a6013b8aafcc64c778a0ccb83355a11204d3b2"
+  integrity sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==
+
+"@reach/rect@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@reach/rect/-/rect-0.16.0.tgz#78cf6acefe2e83d3957fa84f938f6e1fc5700f16"
+  integrity sha512-/qO9jQDzpOCdrSxVPR6l674mRHNTqfEjkaxZHluwJ/2qGUtYsA0GSZiF/+wX/yOWeBif1ycxJDa6HusAMJZC5Q==
+  dependencies:
+    "@reach/observe-rect" "1.2.0"
+    "@reach/utils" "0.16.0"
+    prop-types "^15.7.2"
+    tiny-warning "^1.0.3"
+    tslib "^2.3.0"
+
+"@reach/utils@0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.16.0.tgz#5b0777cf16a7cab1ddd4728d5d02762df0ba84ce"
+  integrity sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q==
+  dependencies:
+    tiny-warning "^1.0.3"
+    tslib "^2.3.0"
+
+"@reduxjs/toolkit@^1.9.7":
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/@reduxjs/toolkit/-/toolkit-1.9.7.tgz#7fc07c0b0ebec52043f8cb43510cf346405f78a6"
+  integrity sha512-t7v8ZPxhhKgOKtU+uyJT13lu4vL7az5aFi4IdoDs/eS548edn2M8Ik9h8fxgvMjGoAUVFSt6ZC1P5cWmQ014QQ==
+  dependencies:
+    immer "^9.0.21"
+    redux "^4.2.1"
+    redux-thunk "^2.4.2"
+    reselect "^4.1.8"
+
 "@release-it/bumper@^4.0.0":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@release-it/bumper/-/bumper-4.0.2.tgz#2f1e9ffd1c3baccd058f5c005b0abf7009f67c74"
@@ -1660,6 +2030,14 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
+"@types/hoist-non-react-statics@^3.3.1":
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.5.tgz#dab7867ef789d87e2b4b0003c9d65c49cc44a494"
+  integrity sha512-SbcrWzkKBw2cdwRTwQAswfpB9g9LJWfjtUeW/jvNwbhC8cpmmNYVePa+ncbUe0rGTQ7G3Ff6mYUN2VMfLVr+Sg==
+  dependencies:
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
+
 "@types/http-cache-semantics@^4.0.2":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.4.tgz#b979ebad3919799c979b17c72621c0bc0a31c6c4"
@@ -1709,6 +2087,14 @@
   dependencies:
     "@types/react" "^17"
 
+"@types/react@*":
+  version "18.3.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.2.tgz#462ae4904973bc212fa910424d901e3d137dbfcd"
+  integrity sha512-Btgg89dAnqD4vV7R3hlwOxgqobUQKgx3MmrQRi0yYbs/P0ym8XozIAlkqVilPqHQwXs4e9Tf63rrCgl58BcO4w==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
+
 "@types/react@^17", "@types/react@^17.0.2":
   version "17.0.80"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.80.tgz#a5dfc351d6a41257eb592d73d3a85d3b7dbcbb41"
@@ -1732,6 +2118,11 @@
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/@types/stylis/-/stylis-4.2.5.tgz#1daa6456f40959d06157698a653a9ab0a70281df"
   integrity sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==
+
+"@types/use-sync-external-store@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
+  integrity sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==
 
 "@typescript-eslint/eslint-plugin@^5.5.0":
   version "5.62.0"
@@ -2449,6 +2840,16 @@ ci-info@^3.2.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.9.0.tgz#4279a62028a7b1f262f3473fc9605f5e218c59b4"
   integrity sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==
 
+classcat@^4.0.2:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/classcat/-/classcat-4.1.0.tgz#e8fd8623e5625187b58adf49bb669a13b6c520f4"
+  integrity sha512-RA8O5oCi1I1CF6rR4cRBROh8MtZzM4w7xKLm0jd+S6UN2G4FIto+9DVOeFc46JEZFN5PVe/EZWLQO1VU/AUH4A==
+
+classcat@^5.0.4:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/classcat/-/classcat-5.0.5.tgz#8c209f359a93ac302404a10161b501eba9c09c77"
+  integrity sha512-JhZUT7JFcQy/EzW605k/ktHtncoo9vnyW/2GspNYwFlN1C/WmjuV/xtS04e9SOkL2sTdw0VAZ2UGCcQ9lR6p6w==
+
 cli-boxes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-3.0.0.tgz#71a10c716feeba005e4504f36329ef0b17cf3145"
@@ -3051,6 +3452,14 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+dom-helpers@^5.0.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-5.2.1.tgz#d9400536b2bf8225ad98fe052e029451ac40e902"
+  integrity sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==
+  dependencies:
+    "@babel/runtime" "^7.8.7"
+    csstype "^3.0.2"
 
 dot-prop@^5.1.0:
   version "5.3.0"
@@ -4111,6 +4520,13 @@ hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+  dependencies:
+    react-is "^16.7.0"
+
 hosted-git-info@^2.1.4:
   version "2.8.9"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
@@ -4183,6 +4599,11 @@ ignore@^5.2.0, ignore@^5.2.4:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.1.tgz#5073e554cd42c5b33b394375f538b8593e34d4ef"
   integrity sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==
+
+immer@^9.0.21:
+  version "9.0.21"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.21.tgz#1e025ea31a40f24fb064f1fef23e931496330176"
+  integrity sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==
 
 immutable@^4.0.0:
   version "4.3.6"
@@ -4906,6 +5327,11 @@ lodash.set@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
   integrity sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==
+
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
 lodash.uniqby@^4.7.0:
   version "4.7.0"
@@ -5644,7 +6070,7 @@ promise.allsettled@1.0.7:
     get-intrinsic "^1.2.1"
     iterate-value "^1.0.2"
 
-prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -5733,15 +6159,47 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-is@^16.13.1:
+react-intersection-observer@^9.5.3:
+  version "9.10.2"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.10.2.tgz#d5b14f80c9a6bed525becc228db7dccac5d0ec1c"
+  integrity sha512-j2hGADK2hCbAlfaq6L3tVLb4iqngoN7B1fT16MwJ4J16YW/vWLcmAIinLsw0lgpZeMi4UDUWtHC9QDde0/P1yQ==
+
+react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-is@^18.0.0:
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
+  integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
+
+react-redux@^8.1.3:
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-8.1.3.tgz#4fdc0462d0acb59af29a13c27ffef6f49ab4df46"
+  integrity sha512-n0ZrutD7DaX/j9VscF+uTALI3oUPa/pO4Z3soOBIjuRn/FzVu6aehhysxZCLi6y7duMf52WNZGMl7CtuK5EnRw==
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@types/hoist-non-react-statics" "^3.3.1"
+    "@types/use-sync-external-store" "^0.0.3"
+    hoist-non-react-statics "^3.3.2"
+    react-is "^18.0.0"
+    use-sync-external-store "^1.0.0"
 
 react-refresh@^0.14.0:
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.2.tgz#3833da01ce32da470f1f936b9d477da5c7028bf9"
   integrity sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==
+
+react-transition-group@^4.4.1, react-transition-group@^4.4.5:
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
+  integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^17.0.2:
   version "17.0.2"
@@ -5830,6 +6288,18 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+redux-thunk@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.4.2.tgz#b9d05d11994b99f7a91ea223e8b04cf0afa5ef3b"
+  integrity sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==
+
+redux@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.1.tgz#c08f4306826c49b5e9dc901dee0452ea8fce6197"
+  integrity sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 reflect.getprototypeof@^1.0.4:
   version "1.0.6"
@@ -5948,6 +6418,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==
+
+reselect@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.1.8.tgz#3f5dc671ea168dccdeb3e141236f69f02eaec524"
+  integrity sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==
 
 resolve-alpn@^1.2.0:
   version "1.2.1"
@@ -6576,6 +7051,11 @@ tiny-invariant@^1.1.0:
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.3.3.tgz#46680b7a873a0d5d10005995eb90a70d74d60127"
   integrity sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==
 
+tiny-warning@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
+
 titleize@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/titleize/-/titleize-3.0.0.tgz#71c12eb7fdd2558aa8a44b0be83b8a76694acd53"
@@ -6630,7 +7110,7 @@ tsconfig-paths@^3.15.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.6.2, tslib@^2.0.1, tslib@^2.1.0, tslib@^2.6.2:
+tslib@2.6.2, tslib@^2.0.1, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
@@ -6854,6 +7334,11 @@ url-join@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-5.0.0.tgz#c2f1e5cbd95fa91082a93b58a1f42fecb4bdbcf1"
   integrity sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==
+
+use-sync-external-store@^1.0.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.2.tgz#c3b6390f3a30eba13200d2302dcdf1e7b57b2ef9"
+  integrity sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
