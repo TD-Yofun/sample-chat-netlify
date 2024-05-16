@@ -1,6 +1,6 @@
 import type { ChatConfigModel } from "@/model/ChatConfig";
 
-const KEY = "__industries_kirin__";
+const KEY = "__industries_kirin__v1__";
 
 export function get(): ChatConfigModel | null {
   const value = localStorage.getItem(KEY) || "";

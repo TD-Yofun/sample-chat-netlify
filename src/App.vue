@@ -7,41 +7,29 @@ import ConfigurationModal from "./components/ConfigurationModal.vue";
 
 import { get } from "./utils/storage";
 import { connect } from "./utils/chat.sdk";
-import { ENVIRONMENT, isValid } from "./utils/environment";
+import { getURLParams, isValid } from "./utils/environment";
 import backgroundImage from "@/assets/kirin.png";
 import type { ChatConfigModel } from "./model/ChatConfig";
 
-let configuration = get();
+const configReactive = reactive<ChatConfigModel>(
+  getURLParams() || get() || ({} as ChatConfigModel)
+);
 
-if (location.search) {
-  const _configuration = location.search
-    .substr(1)
-    .split("&")
-    .reduce((prev, item) => {
-      const itemArray = item.split("=");
-      prev[itemArray[0]] = itemArray[1];
-      return prev;
-    }, {} as ChatConfigModel);
-  if (isValid(_configuration)) {
-    configuration = _configuration;
-  }
+const visible = ref(!configReactive);
+
+if (isValid(configReactive)) {
+  const { environment, touchpoint_id, region } = configReactive;
+  connect(environment, touchpoint_id, region);
 }
-
-const visible = ref(!configuration);
-
-if (isValid(configuration)) {
-  connect(ENVIRONMENT[configuration!.environment], configuration!.flow_id);
-}
-
-const configReactive = reactive<Partial<ChatConfigModel>>(configuration || {});
 
 const onCancel = () => {
   visible.value = false;
 };
 const onConfirm = (value: ChatConfigModel) => {
   visible.value = false;
+  configReactive.region = value.region;
   configReactive.environment = value.environment;
-  configReactive.flow_id = value.flow_id;
+  configReactive.touchpoint_id = value.touchpoint_id;
 };
 </script>
 
@@ -58,12 +46,16 @@ const onConfirm = (value: ChatConfigModel) => {
       "
     >
       <div>
+        <p class="touchpoint" v-if="configReactive.region">
+          Region: <label>{{ configReactive.region }}</label>
+        </p>
+
         <p class="touchpoint" v-if="configReactive.environment">
           Environment: <label>{{ configReactive.environment }}</label>
         </p>
 
-        <p class="touchpoint" v-if="configReactive.flow_id">
-          Touchpoint ID: <label>{{ configReactive.flow_id }}</label>
+        <p class="touchpoint" v-if="configReactive.touchpoint_id">
+          Touchpoint ID: <label>{{ configReactive.touchpoint_id }}</label>
         </p>
       </div>
 

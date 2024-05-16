@@ -4,7 +4,7 @@ import type { FormRules, FormInstance } from "element-plus";
 
 import { get, save } from "@/utils/storage";
 import { connect } from "../utils/chat.sdk";
-import { ENVIRONMENT } from "../utils/environment";
+import { ENVIRONMENT, REGION, getURLParams } from "../utils/environment";
 
 import type { ChatConfigModel } from "../model/ChatConfig";
 
@@ -18,12 +18,9 @@ const { visible, onConfirm, onCancel } = toRefs(props);
 
 // data
 const ruleFormRef = ref<FormInstance>();
-const form = reactive<ChatConfigModel>({
-  environment: "STG",
-  flow_id: "",
-});
+const form = reactive<ChatConfigModel>({} as ChatConfigModel);
 const rules = reactive<FormRules>({
-  flow_id: [
+  touchpoint_id: [
     {
       required: true,
       message: "Please input touchpoint id value",
@@ -47,9 +44,10 @@ watch(
   visible,
   (value) => {
     if (value) {
-      const configuration = get();
+      const configuration = getURLParams() || get();
+      form.region = configuration?.region || "US";
       form.environment = configuration?.environment || "STG";
-      form.flow_id = configuration?.flow_id || "";
+      form.touchpoint_id = configuration?.touchpoint_id || "";
       ruleFormRef.value?.clearValidate();
     }
   },
@@ -60,8 +58,8 @@ watch(
 const start = async () => {
   const valid = await ruleFormRef.value?.validate();
   if (!valid) return;
-  const { environment, flow_id } = form;
-  connect(ENVIRONMENT[environment], flow_id);
+  const { region, environment, touchpoint_id } = form;
+  connect(environment, touchpoint_id, region);
   save(form);
   onConfirm.value(form);
 };
@@ -82,6 +80,17 @@ const start = async () => {
       :rules="rules"
       label-position="left"
     >
+      <el-form-item label="Region" prop="region" :required="true">
+        <el-radio-group v-model="form.region">
+          <el-radio-button
+            v-for="item in Object.keys(REGION)"
+            :label="item"
+            :key="item"
+            >{{ item }}</el-radio-button
+          >
+        </el-radio-group>
+      </el-form-item>
+
       <el-form-item label="Environment" prop="environment" :required="true">
         <el-radio-group v-model="form.environment">
           <el-radio-button
@@ -93,8 +102,8 @@ const start = async () => {
         </el-radio-group>
       </el-form-item>
 
-      <el-form-item label="Touchpoint Id" prop="flow_id">
-        <el-input v-model="form.flow_id" />
+      <el-form-item label="Touchpoint Id" prop="touchpoint_id">
+        <el-input v-model="form.touchpoint_id" />
       </el-form-item>
     </el-form>
     <template #footer>
