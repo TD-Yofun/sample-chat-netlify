@@ -1,5 +1,5 @@
-export function connect(region: string, environment: string, touchpoint_id: string) {
-  let webchat;
+export function connect(region: string, environment: string, touchpoint_id: string, context?: Record<string, string>) {
+  let webchat: any;
   ((window, document, node, props, configs) => {
     if (window.TalkdeskChatSDK) {
       // eslint-disable-next-line no-console
@@ -26,17 +26,19 @@ export function connect(region: string, environment: string, touchpoint_id: stri
        * If you would like to do it, you need to remove the following commented code and
        * modify the webchat.setContextParam parameters to pass in the data you need.
        */
-      /*function setContext() {
-             webchat.setContextParam({ "var1": "value1", "var2": "value2", "var3": 100 })
-           }
-           // Send data when the chat conversation is initiated
-           webchat.onConversationStart = function() {
-             setContext()
-           }
-           // Send data when the chat widget is open
-           webchat.onOpenWebchat = function() {
-             setContext()
-           }*/
+      function setContext() {
+        if (context) {
+          webchat.setContextParam({ ...context });
+        }
+      }
+      // Send data when the chat conversation is initiated
+      webchat.onConversationStart = function () {
+        setContext();
+      };
+      // Send data when the chat widget is open
+      webchat.onOpenWebchat = function () {
+        setContext();
+      };
     };
   })(
     window,

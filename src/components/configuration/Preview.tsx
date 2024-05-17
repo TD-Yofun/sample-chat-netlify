@@ -34,7 +34,7 @@ const Preview = ({ format }: Props) => {
     .map(([label, value]) => {
       return {
         label,
-        value,
+        value: typeof value === 'object' ? JSON.stringify(value, null, 2) : value,
         direction,
       };
     });

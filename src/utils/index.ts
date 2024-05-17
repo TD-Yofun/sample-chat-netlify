@@ -17,9 +17,17 @@ function getURLParams(): Configuration | null {
   const region = urlParams.get('region');
   const environment = urlParams.get('environment');
   const touchpoint_id = urlParams.get('touchpoint_id');
+  let context = urlParams.get('context') || undefined;
+  if (context) {
+    try {
+      context = JSON.parse(context);
+    } catch (e) {
+      context = undefined;
+    }
+  }
 
   if (!region || !environment || !touchpoint_id) return null;
-  return { region, environment, touchpoint_id } as Configuration;
+  return { region, environment, touchpoint_id, context } as Configuration;
 }
 
 export function getConfiguration(isConfigured?: boolean) {

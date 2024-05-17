@@ -31,7 +31,12 @@ const App = () => {
     if (configuration) {
       // connect
       const chatConfigurations = formatConfiguration(configuration);
-      connect(chatConfigurations.region, chatConfigurations.environment, chatConfigurations.touchpoint_id);
+      connect(
+        chatConfigurations.region,
+        chatConfigurations.environment,
+        chatConfigurations.touchpoint_id,
+        chatConfigurations.context,
+      );
       dispatch(setConfiguration(configuration));
     }
     setVisible(!configuration);

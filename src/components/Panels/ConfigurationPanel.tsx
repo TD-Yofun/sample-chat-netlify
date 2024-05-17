@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import Box from '@cobalt/react-box';
 import Button from '@cobalt/react-button';
@@ -12,6 +12,7 @@ import FormControl from '@cobalt-marketplace/react-form-control';
 
 import { useResponsive, useValidate } from '@industries-packages/react-hooks';
 import Select, { Option } from '@industries-packages/react-select';
+import { v4 } from 'uuid';
 
 import { ENDPOINT, REGION } from '@/constant';
 import { useDispatch, useSelector } from '@/store';
@@ -23,6 +24,7 @@ import { connect } from '@/utils/chat.sdk';
 import PanelBody from './PanelBody';
 import PanelHeader from './PanelHeader';
 import PanelRender from './PanelRender';
+import ContextItem from '../configuration/ContextItem';
 import Preview, { formatConfiguration } from '../configuration/Preview';
 import { useConfiguration } from '../configuration/useConfiguration';
 
@@ -56,14 +58,25 @@ const ConfigurationPanel = ({ onClose }: Props) => {
   const environmentValidator = useValidate({ trigger: 'change', required: true });
   const touchpointIdValidator = useValidate({ trigger: 'blur', required: true });
 
-  const paramsURL =
-    window.location.href.split('?')[0] +
-    '?' +
-    new URLSearchParams(data as unknown as Record<string, string>).toString();
+  const contextValidatorRef = useRef<Array<() => Promise<void>>>([]);
+  const [contextArray, setContextArray] = useState<{ _key: string; key: string; value: string }[]>(
+    data.context ? Object.entries(data.context).map(([key, value]) => ({ key, value, _key: v4() })) : [],
+  );
 
   const showParams = useMemo(() => {
     const paramsConfigurations = formatConfiguration(data);
     return paramsConfigurations.region || paramsConfigurations.environment || paramsConfigurations.touchpoint_id;
+  }, [data]);
+  const paramsURL = useMemo(() => {
+    const newData: Record<string, string | undefined> = {
+      ...data,
+      context: data.context ? JSON.stringify(data.context) : undefined,
+    };
+    return (
+      window.location.href.split('?')[0] +
+      '?' +
+      new URLSearchParams(newData as unknown as Record<string, string>).toString()
+    );
   }, [data]);
 
   const validate = async () => {
@@ -73,6 +86,7 @@ const ConfigurationPanel = ({ onClose }: Props) => {
         environmentValidator.validate(data.environment),
         touchpointIdValidator.validate(data.touchpoint_id),
       ]);
+      await Promise.all(contextValidatorRef.current.slice(0, contextArray.length).map((validator) => validator()));
 
       return true;
     } catch (error) {
@@ -85,7 +99,12 @@ const ConfigurationPanel = ({ onClose }: Props) => {
     if (!isValid) return;
     // connect
     const chatConfigurations = formatConfiguration(data);
-    connect(chatConfigurations.region, chatConfigurations.environment, chatConfigurations.touchpoint_id);
+    connect(
+      chatConfigurations.region,
+      chatConfigurations.environment,
+      chatConfigurations.touchpoint_id,
+      chatConfigurations.context,
+    );
     // save configuration
     configurationStorage.save(data);
     dispatch(setIsConfigured(true));
@@ -164,6 +183,50 @@ const ConfigurationPanel = ({ onClose }: Props) => {
               size={size}
             />
           </FormControl>
+
+          <Flex alignY="center" width="100%" alignX="space-between">
+            <Heading level={responsive([4, 3, 3])}>Context Variables</Heading>
+            <Icon
+              color="var(--primary-600)"
+              name="plus_circle"
+              size={responsive(['tiny', 'small', 'small'])}
+              onClick={() => setContextArray((pre) => [...pre, { key: '', value: '', _key: v4() }])}
+            />
+          </Flex>
+
+          <Box>
+            {contextArray.map((context, index) => {
+              return (
+                <ContextItem
+                  key={context._key}
+                  forwardedRef={(ref) => (contextValidatorRef.current[index] = ref)}
+                  size={size}
+                  index={index}
+                  contexts={contextArray}
+                  value={context}
+                  onChange={(value) => {
+                    // setContextArray((pre) => {
+                    //   const newContext = [...pre];
+                    //   newContext[index] = { ...newContext[index], ...context };
+                    //   return newContext;
+                    // });
+                    const newContext = [...contextArray];
+                    newContext[index] = { ...newContext[index], ...value };
+                    setContextArray(newContext);
+                    const contextStore = newContext.reduce(
+                      (acc, item) => {
+                        acc[item.key] = item.value;
+                        return acc;
+                      },
+                      {} as Record<string, string>,
+                    );
+                    dispatch(setConfiguration({ ...data, context: contextStore }));
+                  }}
+                  onDelete={() => setContextArray((pre) => pre.filter((_, i) => i !== index))}
+                />
+              );
+            })}
+          </Box>
 
           {showParams && (
             <>
