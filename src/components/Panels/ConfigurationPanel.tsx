@@ -46,6 +46,16 @@ const environmentOptions: Option[] = Object.keys(ENDPOINT).map((key) => {
   };
 });
 
+function contextArrayToObject(contextArray: { key: string; value: string }[]) {
+  return contextArray.reduce(
+    (acc, item) => {
+      acc[item.key] = item.value;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+}
+
 const ConfigurationPanel = ({ onClose }: Props) => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.configuration);
@@ -213,16 +223,16 @@ const ConfigurationPanel = ({ onClose }: Props) => {
                     const newContext = [...contextArray];
                     newContext[index] = { ...newContext[index], ...value };
                     setContextArray(newContext);
-                    const contextStore = newContext.reduce(
-                      (acc, item) => {
-                        acc[item.key] = item.value;
-                        return acc;
-                      },
-                      {} as Record<string, string>,
-                    );
+                    const contextStore = contextArrayToObject(newContext);
                     dispatch(setConfiguration({ ...data, context: contextStore }));
                   }}
-                  onDelete={() => setContextArray((pre) => pre.filter((_, i) => i !== index))}
+                  onDelete={() => {
+                    const newContext = [...contextArray];
+                    newContext.splice(index, 1);
+                    setContextArray(newContext);
+                    const contextStore = contextArrayToObject(newContext);
+                    dispatch(setConfiguration({ ...data, context: contextStore }));
+                  }}
                 />
               );
             })}
