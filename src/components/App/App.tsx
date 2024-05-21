@@ -8,6 +8,7 @@ import Icon from '@cobalt/react-icon';
 import { useResponsive } from '@industries-packages/react-hooks';
 
 import kirinImage from '@/assets/kirin.png?url';
+import talkdesk from '@/assets/talkdesk.svg?raw';
 import { useDispatch } from '@/store';
 import { setConfiguration } from '@/store/configuration-slice';
 import { Size } from '@/types';
@@ -44,15 +45,19 @@ const App = () => {
 
   return (
     <>
-      <Box height="100%" padding={[3, 5, 6]}>
-        <img className={styles['kirin']} src={kirinImage} alt="" />
-        <Flex alignX="space-between">
-          <Preview />
+      <img className={styles['kirin']} src={kirinImage} alt="" />
+      <Flex height="100%" padding={[3, 5, 6]} direction="column" alignY="space-between">
+        <Flex width="100%" alignX="space-between">
+          <Box dangerouslySetInnerHTML={{ __html: talkdesk }} padding={2} />
           <Button variation="transparent" size={size} onClick={() => setVisible(true)}>
             <Icon name="settings" size={responsive(['tiny', 'small', 'small'])} />
           </Button>
         </Flex>
-      </Box>
+
+        <Box width="100%">
+          <Preview />
+        </Box>
+      </Flex>
 
       {visible && <ConfigurationPanel onClose={() => setVisible(false)} />}
     </>
