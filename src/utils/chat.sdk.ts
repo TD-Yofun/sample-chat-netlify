@@ -2,9 +2,19 @@ export function connect(region: string, environment: string, touchpoint_id: stri
   let webchat: any;
   ((window, document, node, props, configs) => {
     if (window.TalkdeskChatSDK) {
+      // remove container
+      const container = document.getElementById(node);
+      if (container) {
+        container.remove();
+      }
+      // remove script
+      const script = document.getElementById('tdwebchatscript');
+      if (script) {
+        script.remove();
+      }
+      window.TalkdeskChatSDK = null;
       // eslint-disable-next-line no-console
-      console.error('TalkdeskChatSDK already included');
-      return;
+      console.log('TalkdeskChatSDK removed');
     }
     const divContainer = document.createElement('div');
     divContainer.id = node;

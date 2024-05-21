@@ -78,10 +78,21 @@ const ConfigurationPanel = ({ onClose }: Props) => {
     return paramsConfigurations.region || paramsConfigurations.environment || paramsConfigurations.touchpoint_id;
   }, [data]);
   const paramsURL = useMemo(() => {
-    const newData: Record<string, string | undefined> = {
+    let newData: Record<string, string | undefined> = {
       ...data,
       context: data.context ? JSON.stringify(data.context) : undefined,
     };
+    // filter out empty values
+    newData = Object.keys(newData).reduce(
+      (acc, key) => {
+        if (newData[key]) {
+          acc[key] = newData[key];
+        }
+        return acc;
+      },
+      {} as Record<string, string | undefined>,
+    );
+
     return (
       window.location.href.split('?')[0] +
       '?' +
