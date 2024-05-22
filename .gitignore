@@ -5,3 +5,4 @@ dist
 *.log
 *-debug.log*
 
+stats.html
