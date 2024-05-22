@@ -10,6 +10,7 @@ import { Heading, Text } from '@cobalt/react-typography';
 import CopyToClipboard from '@cobalt-marketplace/react-copy-to-clipboard';
 import FormControl from '@cobalt-marketplace/react-form-control';
 
+import { Empty } from '@industries-packages/react-error-widget';
 import { useResponsive, useValidate } from '@industries-packages/react-hooks';
 import Select, { Option } from '@industries-packages/react-select';
 import { v4 } from 'uuid';
@@ -68,11 +69,13 @@ const ConfigurationPanel = ({ onClose }: Props) => {
   const environmentValidator = useValidate({ trigger: 'change', required: true });
   const touchpointIdValidator = useValidate({ trigger: 'blur', required: true });
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const contextValidatorRef = useRef<Array<() => Promise<void>>>([]);
   const [contextArray, setContextArray] = useState<{ _key: string; key: string; value: string }[]>(
     data.context ? Object.entries(data.context).map(([key, value]) => ({ key, value, _key: v4() })) : [],
   );
 
+  const containerWidth = containerRef.current?.clientWidth || 0;
   const showParams = useMemo(() => {
     const paramsConfigurations = formatConfiguration(data);
     return paramsConfigurations.region || paramsConfigurations.environment || paramsConfigurations.touchpoint_id;
@@ -148,7 +151,7 @@ const ConfigurationPanel = ({ onClose }: Props) => {
     <PanelRender>
       <Flex direction="column" width="100%" height="100%">
         <PanelHeader title="Configuration Settings" onClose={onClose} />
-        <PanelBody divider paddingY={3}>
+        <PanelBody divider paddingY={3} forwardedRef={containerRef}>
           <Message variation="info">
             <Flex gap={2} padding={2}>
               <Box grow>
@@ -216,37 +219,65 @@ const ConfigurationPanel = ({ onClose }: Props) => {
           </Flex>
 
           <Box>
-            {contextArray.map((context, index) => {
-              return (
-                <ContextItem
-                  key={context._key}
-                  forwardedRef={(ref) => (contextValidatorRef.current[index] = ref)}
-                  size={size}
-                  index={index}
-                  contexts={contextArray}
-                  value={context}
-                  onChange={(value) => {
-                    // setContextArray((pre) => {
-                    //   const newContext = [...pre];
-                    //   newContext[index] = { ...newContext[index], ...context };
-                    //   return newContext;
-                    // });
-                    const newContext = [...contextArray];
-                    newContext[index] = { ...newContext[index], ...value };
-                    setContextArray(newContext);
-                    const contextStore = contextArrayToObject(newContext);
-                    dispatch(setConfiguration({ ...data, context: contextStore }));
-                  }}
-                  onDelete={() => {
-                    const newContext = [...contextArray];
-                    newContext.splice(index, 1);
-                    setContextArray(newContext);
-                    const contextStore = contextArrayToObject(newContext);
-                    dispatch(setConfiguration({ ...data, context: contextStore }));
-                  }}
-                />
-              );
-            })}
+            {contextArray.length > 0 && (
+              <table style={{ borderSpacing: 0 }}>
+                <colgroup>
+                  <col style={{ width: (containerWidth - 32) / 2 }} />
+                  <col style={{ width: (containerWidth - 32) / 2 }} />
+                  <col style={{ width: 32 }} />
+                </colgroup>
+                <thead style={{ backgroundColor: 'var(--gray-200)' }}>
+                  <tr>
+                    <th>
+                      <Flex padding={2}>
+                        <Text weight="medium">Name</Text>
+                      </Flex>
+                    </th>
+                    <th>
+                      <Flex padding={2}>
+                        <Text weight="medium">Value</Text>
+                      </Flex>
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                {contextArray.map((context, index) => {
+                  return (
+                    <ContextItem
+                      key={context._key}
+                      forwardedRef={(ref) => (contextValidatorRef.current[index] = ref)}
+                      size={size}
+                      index={index}
+                      contexts={contextArray}
+                      value={context}
+                      onChange={(value) => {
+                        const newContext = [...contextArray];
+                        newContext[index] = { ...newContext[index], ...value };
+                        setContextArray(newContext);
+                        const contextStore = contextArrayToObject(newContext);
+                        dispatch(setConfiguration({ ...data, context: contextStore }));
+                      }}
+                      onDelete={() => {
+                        const newContext = [...contextArray];
+                        newContext.splice(index, 1);
+                        setContextArray(newContext);
+                        const contextStore = contextArrayToObject(newContext);
+                        dispatch(setConfiguration({ ...data, context: contextStore }));
+                      }}
+                    />
+                  );
+                })}
+              </table>
+            )}
+            {contextArray.length === 0 && (
+              <Empty
+                title={
+                  <Box paddingTop={1}>
+                    <Text color="var(--gray-500)">No context variables</Text>
+                  </Box>
+                }
+              />
+            )}
           </Box>
 
           {showParams && (

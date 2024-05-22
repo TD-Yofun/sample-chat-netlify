@@ -38,6 +38,7 @@
     "@industries-packages/react-scrollable-shadow": "^1.0.1",
     "@industries-packages/react-list-popup": "^1.0.2",
     "@industries-packages/react-select": "^1.0.10",
+    "@industries-packages/react-error-widget": "^1.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^9.5.3",

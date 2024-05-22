@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import Box from '@cobalt/react-box';
 import Flex from '@cobalt/react-flex';
 import Icon from '@cobalt/react-icon';
 import Input from '@cobalt/react-input';
@@ -51,34 +52,48 @@ const ContextItem = ({ forwardedRef, contexts, value: context, onChange, size, o
   }, [context.key, forwardedRef, validator]);
 
   return (
-    <Flex direction="column" width="100%" gap={1} paddingBottom={2}>
-      <Flex gap={2} alignY="center" width="100%">
-        <Input
-          value={context.key}
-          size={size}
-          placeholder="Enter context name"
-          onChange={(e) => {
-            const value = e.target.value.replace(/\s/g, '');
-            onChange({ key: value, value: context.value });
-          }}
-          onBlur={(e) => validator.onBlur(e.target.value)}
-          variation={validator.variation}
-        />
-        <Input
-          value={context.value}
-          size={size}
-          placeholder="Enter context value"
-          onChange={(e) => {
-            const value = e.target.value;
-            onChange({ key: context.key, value });
-          }}
-          onBlur={(e) => validator.onBlur(e.target.value)}
-          variation={validator.variation}
-        />
-        <Icon name="delete_outline" size={responsive(['tiny', 'small', 'small'])} onClick={onDelete} />
-      </Flex>
+    <>
+      <tr>
+        <td>
+          <Box paddingY={1}>
+            <Input
+              value={context.key}
+              size={size}
+              placeholder="Enter context name"
+              onChange={(e) => {
+                const value = e.target.value.replace(/\s/g, '');
+                onChange({ key: value, value: context.value });
+              }}
+              onBlur={(e) => validator.onBlur(e.target.value)}
+              variation={validator.variation}
+            />
+          </Box>
+        </td>
+
+        <td>
+          <Box paddingY={1}>
+            <Input
+              value={context.value}
+              size={size}
+              placeholder="Enter context value"
+              onChange={(e) => {
+                const value = e.target.value;
+                onChange({ key: context.key, value });
+              }}
+              onBlur={(e) => validator.onBlur(e.target.value)}
+              variation={validator.variation}
+            />
+          </Box>
+        </td>
+
+        <td>
+          <Flex width="100%" alignX="end">
+            <Icon name="delete_outline" size={responsive(['tiny', 'small', 'small'])} onClick={onDelete} />
+          </Flex>
+        </td>
+      </tr>
       <FormControl label="" inputId="" {...validator.formControl}></FormControl>
-    </Flex>
+    </>
   );
 };
 
