@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import classcat from 'classcat';
+
 import Box from '@cobalt/react-box';
 import Button from '@cobalt/react-button';
 import Flex from '@cobalt/react-flex';
@@ -47,7 +49,14 @@ const App = () => {
 
   return (
     <>
-      <img className={styles['bg']} src={background || kirinImage} alt="" />
+      <img
+        className={classcat({
+          [styles['bg']]: true,
+          [styles['kirin']]: !background,
+        })}
+        src={background || kirinImage}
+        alt=""
+      />
       <Flex
         width="100%"
         height="100%"
