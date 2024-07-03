@@ -68,6 +68,15 @@ const ConfigurationPanel = ({ onClose }: Props) => {
   const regionValidator = useValidate({ trigger: 'change', required: true });
   const environmentValidator = useValidate({ trigger: 'change', required: true });
   const touchpointIdValidator = useValidate({ trigger: 'blur', required: true });
+  const backgroundValidator = useValidate({
+    trigger: 'blur',
+    validator: async (value) => {
+      // url validation
+      if (value && !/^https?:\/\/.+\..+/.test(value)) {
+        throw new Error('Invalid URL');
+      }
+    },
+  });
 
   const containerRef = useRef<HTMLDivElement>(null);
   const contextValidatorRef = useRef<Array<() => Promise<void>>>([]);
@@ -109,6 +118,7 @@ const ConfigurationPanel = ({ onClose }: Props) => {
         regionValidator.validate(data.region),
         environmentValidator.validate(data.environment),
         touchpointIdValidator.validate(data.touchpoint_id),
+        backgroundValidator.validate(data.background),
       ]);
       await Promise.all(contextValidatorRef.current.slice(0, contextArray.length).map((validator) => validator()));
 
@@ -279,6 +289,22 @@ const ConfigurationPanel = ({ onClose }: Props) => {
               />
             )}
           </Box>
+
+          <Heading level={responsive([4, 3, 3])}>Others</Heading>
+          <FormControl label="Background" inputId="" {...backgroundValidator.formControl}>
+            <Input
+              value={data.background}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\s/g, '');
+                dispatch(setConfiguration({ ...data, background: value }));
+              }}
+              onBlur={(e) => {
+                backgroundValidator.onBlur(e.target.value);
+              }}
+              variation={backgroundValidator.variation}
+              placeholder="Enter background image URL"
+            />
+          </FormControl>
 
           {showParams && (
             <>

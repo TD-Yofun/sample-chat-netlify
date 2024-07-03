@@ -6,6 +6,7 @@ export interface Configuration {
   region: keyof typeof REGION;
   environment: keyof typeof ENDPOINT;
   touchpoint_id: string;
+  background: string;
   context?: Record<string, string>;
 }
 

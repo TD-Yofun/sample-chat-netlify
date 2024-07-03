@@ -59,6 +59,6 @@ export function connect(region: string, environment: string, touchpoint_id: stri
       accountId: '',
       region,
     },
-    { enableEmoji: true, enableUserInput: true, enableAttachments: true },
+    { enableEmoji: true, enableUserInput: true, enableAttachments: true, enableConnectionFromTriggerButton: true },
   );
 }

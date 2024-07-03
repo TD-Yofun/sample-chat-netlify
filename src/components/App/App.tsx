@@ -8,8 +8,9 @@ import Icon from '@cobalt/react-icon';
 import { useResponsive } from '@industries-packages/react-hooks';
 
 import kirinImage from '@/assets/kirin.png?url';
+// import kirinImage from '@/assets/image.png?url';
 import talkdesk from '@/assets/talkdesk.svg?raw';
-import { useDispatch } from '@/store';
+import { useDispatch, useSelector } from '@/store';
 import { setConfiguration } from '@/store/configuration-slice';
 import { Size } from '@/types';
 import { connect } from '@/utils/chat.sdk';
@@ -23,6 +24,7 @@ const App = () => {
   const responsive = useResponsive();
   const size: Size = responsive(['small', 'medium', 'medium']);
   const dispatch = useDispatch();
+  const { background } = useSelector((state) => state.configuration.data);
   const { getConfiguration } = useConfiguration();
 
   const [visible, setVisible] = useState(false);
@@ -45,10 +47,22 @@ const App = () => {
 
   return (
     <>
-      <img className={styles['kirin']} src={kirinImage} alt="" />
-      <Flex height="100%" padding={[3, 5, 6]} direction="column" alignY="space-between">
+      <img className={styles['bg']} src={background || kirinImage} alt="" />
+      <Flex
+        width="100%"
+        height="100%"
+        padding={[3, 5, 6]}
+        direction="column"
+        alignY="space-between"
+        style={{
+          position: 'relative',
+          top: 0,
+          left: 0,
+          zIndex: 1,
+        }}
+      >
         <Flex width="100%" alignX="space-between">
-          <Box dangerouslySetInnerHTML={{ __html: talkdesk }} padding={2} />
+          {!background ? <Box dangerouslySetInnerHTML={{ __html: talkdesk }} padding={2} /> : <div />}
           <Button variation="transparent" size={size} onClick={() => setVisible(true)}>
             <Icon name="settings" size={responsive(['tiny', 'small', 'small'])} />
           </Button>
