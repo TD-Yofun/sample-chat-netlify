@@ -5,7 +5,7 @@ export const REGION = {
 };
 
 export const ENDPOINT = {
-  STG: 'https://talkdeskchatsdk.svc.talkdeskstg.com/talkdeskchatsdk.js',
-  QA: 'https://talkdeskchatsdk.svc.talkdeskqa.com/talkdeskchatsdk.js',
-  PROD: 'https://talkdeskchatsdk.talkdeskapp.com/talkdeskchatsdk.js',
+  STG: 'https://talkdeskchatsdk.svc.talkdeskstg.com/v2/talkdeskchatsdk.js',
+  QA: 'https://talkdeskchatsdk.svc.talkdeskqa.com/v2/talkdeskchatsdk.js',
+  PROD: 'https://talkdeskchatsdk.talkdeskapp.com/v2/talkdeskchatsdk.js',
 };
