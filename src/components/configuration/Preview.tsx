@@ -18,6 +18,7 @@ export function formatConfiguration(data: Configuration) {
 
 interface Props {
   format?: boolean;
+  allowClose?: boolean;
 }
 
 interface Row {
@@ -26,7 +27,7 @@ interface Row {
   direction: 'row' | 'column';
 }
 
-const Preview = ({ format }: Props) => {
+const Preview = ({ format, allowClose }: Props) => {
   const { data } = useSelector((state) => state.configuration);
 
   const configuration = format ? formatConfiguration(data) : data;
@@ -44,36 +45,39 @@ const Preview = ({ format }: Props) => {
       };
     });
 
-  if (!show) {
-    return <></>;
-  }
-
-  return (
-    <Flex
-      direction="column"
-      width="100%"
-      gap={3}
-      style={{
+  const style: React.CSSProperties = allowClose
+    ? {
         padding: 10,
         width: 'fit-content',
         borderRadius: 8,
         backgroundColor: 'rgba(255, 255, 255, 0.6)',
         position: 'relative',
         overflow: 'hidden',
-      }}
-    >
-      <Flex
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          cursor: 'pointer',
-          background: 'var(--red-700)',
-        }}
-        onClick={() => setShow(false)}
-      >
-        <Icon name="close" color="white" size="tiny" />
-      </Flex>
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+      }
+    : {};
+
+  if (!show) {
+    return <></>;
+  }
+
+  return (
+    <Flex direction="column" width="100%" gap={3} style={style}>
+      {allowClose && (
+        <Flex
+          style={{
+            position: 'absolute',
+            top: 0,
+            right: 0,
+            cursor: 'pointer',
+            background: 'var(--red-700)',
+            padding: '2px',
+          }}
+          onClick={() => setShow(false)}
+        >
+          <Icon name="close" color="white" size="micro" />
+        </Flex>
+      )}
 
       {rows.map((row) => (
         <Flex key={row.label} direction={row.direction} gap={2}>

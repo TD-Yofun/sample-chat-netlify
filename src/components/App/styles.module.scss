@@ -14,3 +14,14 @@
   width: 100%;
   height: auto;
 }
+
+.side_panel_button {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background-color: var(--primary-600);
+  border: 1px solid #000;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  cursor: pointer;
+}

@@ -3,18 +3,15 @@ import { useState, useEffect } from 'react';
 import classcat from 'classcat';
 
 import Box from '@cobalt/react-box';
-import Button from '@cobalt/react-button';
 import Flex from '@cobalt/react-flex';
 import Icon from '@cobalt/react-icon';
-
-import { useResponsive } from '@industries-packages/react-hooks';
 
 import kirinImage from '@/assets/kirin.png?url';
 // import kirinImage from '@/assets/image.png?url';
 import talkdesk from '@/assets/talkdesk.svg?raw';
+import { PADDING_SPACING } from '@/constant';
 import { useDispatch, useSelector } from '@/store';
 import { setConfiguration } from '@/store/configuration-slice';
-import { Size } from '@/types';
 import { connect } from '@/utils/chat.sdk';
 
 import styles from './styles.module.scss';
@@ -23,8 +20,6 @@ import { useConfiguration } from '../configuration/useConfiguration';
 import ConfigurationPanel from '../Panels/ConfigurationPanel';
 
 const App = () => {
-  const responsive = useResponsive();
-  const size: Size = responsive(['small', 'medium', 'medium']);
   const dispatch = useDispatch();
   const { background } = useSelector((state) => state.configuration.data);
   const { getConfiguration } = useConfiguration();
@@ -57,30 +52,22 @@ const App = () => {
         src={background || kirinImage}
         alt=""
       />
-      <Flex
-        width="100%"
-        height="100%"
-        padding={[3, 5, 6]}
-        direction="column"
-        alignY="space-between"
-        style={{
-          position: 'relative',
-          top: 0,
-          left: 0,
-          zIndex: 1,
-        }}
-      >
-        <Flex width="100%" alignX="space-between">
-          {!background ? <Box dangerouslySetInnerHTML={{ __html: talkdesk }} padding={2} /> : <div />}
-          <Button variation="transparent" size={size} onClick={() => setVisible(true)}>
-            <Icon name="settings" size={responsive(['tiny', 'small', 'small'])} />
-          </Button>
+      <Box width="100%" height="100%">
+        <Flex padding={PADDING_SPACING} width="100%" height="100%" direction="column" alignY="space-between">
+          <Flex width="100%" alignX="space-between">
+            {!background ? <Box dangerouslySetInnerHTML={{ __html: talkdesk }} padding={2} /> : <div />}
+          </Flex>
+
+          <Box width="100%">
+            <Preview allowClose />
+          </Box>
         </Flex>
 
-        <Box width="100%">
-          <Preview />
-        </Box>
-      </Flex>
+        {/* open side panel */}
+        <Flex className={styles['side_panel_button']} alignX="center" alignY="center" onClick={() => setVisible(true)}>
+          <Icon name={visible ? 'chevron_right' : 'chevron_left'} size="tiny" color="#fff" />
+        </Flex>
+      </Box>
 
       {visible && <ConfigurationPanel onClose={() => setVisible(false)} />}
     </>
