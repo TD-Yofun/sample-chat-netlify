@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import Flex from '@cobalt/react-flex';
+import Icon from '@cobalt/react-icon';
 import { Text } from '@cobalt/react-typography';
 
 import { ENDPOINT, REGION } from '@/constant';
@@ -29,6 +32,8 @@ const Preview = ({ format }: Props) => {
   const configuration = format ? formatConfiguration(data) : data;
   const direction = format ? 'column' : 'row';
 
+  const [show, setShow] = useState(true);
+
   const rows: Row[] = Object.entries(configuration)
     .filter(([_, value]) => !!value)
     .map(([label, value]) => {
@@ -39,8 +44,37 @@ const Preview = ({ format }: Props) => {
       };
     });
 
+  if (!show) {
+    return <></>;
+  }
+
   return (
-    <Flex direction="column" width="100%" gap={3}>
+    <Flex
+      direction="column"
+      width="100%"
+      gap={3}
+      style={{
+        padding: 10,
+        width: 'fit-content',
+        borderRadius: 8,
+        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <Flex
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          cursor: 'pointer',
+          background: 'var(--red-700)',
+        }}
+        onClick={() => setShow(false)}
+      >
+        <Icon name="close" color="white" size="tiny" />
+      </Flex>
+
       {rows.map((row) => (
         <Flex key={row.label} direction={row.direction} gap={2}>
           <Text color="var(--gray-600)">{row.label}:</Text>

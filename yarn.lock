@@ -1149,22 +1149,22 @@
     "@babel/helper-validator-identifier" "^7.24.5"
     to-fast-properties "^2.0.0"
 
-"@cobalt-marketplace/react-copy-to-clipboard@^1.0.2":
-  version "1.0.2"
-  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-copy-to-clipboard/-/react-copy-to-clipboard-1.0.2.tgz#34ebef5700abe1a02ea9048e51bd7b9db6660884"
-  integrity sha512-UxvQTQY3y0+z3BKWrRnz36ywLgmeEpyqGsx0+sONj/xcE+zMkU6iQ7pEPNB2Ym3QDA0wXsjcseu/+vm544rvug==
+"@cobalt-marketplace/react-copy-to-clipboard@^1.0.3":
+  version "1.0.3"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-copy-to-clipboard/-/react-copy-to-clipboard-1.0.3.tgz#bd9beb205a3950280d120663decb16a180b329b5"
+  integrity sha512-94woeFaDJ93xCJfiJBJ6Nxu234jofM9+jhbBo3sD5nDjETex+fg92RBfe4I/BMV2HERl/NcGaxiYzNXDVCMVgA==
   dependencies:
     react-transition-group "^4.4.1"
 
-"@cobalt-marketplace/react-form-control@^1.0.5":
-  version "1.0.5"
-  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-form-control/-/react-form-control-1.0.5.tgz#c031d8140e2cefe385f3320db1b555f91282c2cb"
-  integrity sha512-JQHUM4TwcJRzvoKAnNkAbnnVXUeLksVO38hzEDga/4l3QeqgntmsYBMo1jwtWHT+vgGGXOVDVl3IE5N7J0XbtA==
+"@cobalt-marketplace/react-form-control@^1.0.6":
+  version "1.0.6"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-form-control/-/react-form-control-1.0.6.tgz#13afbf7aba983b33051c8fca563ce6dbbe67ddef"
+  integrity sha512-KwSZlbZGQwV4rTg8N1nzrVJjyft/nI+DDIFfOKHXsUJukG5bMXNO1GmRODsLAe4/nJxS+B/bxQrVZczt3Sy/NA==
 
-"@cobalt-marketplace/react-labeled-icon@^2.0.1":
-  version "2.0.1"
-  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-labeled-icon/-/react-labeled-icon-2.0.1.tgz#353d92700500b968416ae6896db4063d43fc774b"
-  integrity sha512-0Pi8V3F5u7OU2MfKIFF/aoZMY0iu2NYAhlX6jTG+KjkqJZU9rAsHtsau3CBJ+hdt4B169AogEfSuyuQf0oCfjg==
+"@cobalt-marketplace/react-labeled-icon@^2.0.2":
+  version "2.0.2"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt-marketplace/react-labeled-icon/-/react-labeled-icon-2.0.2.tgz#8cad3706cebe22a2c52cdcfba9602235f16f6cf4"
+  integrity sha512-H+Gi7klikpzEMSkxqkLLrfwHxJGvPGG7KxNsSuPtMOfu/LZQpElGRVc6eYDaEl0ILdTmdypa6mxiwkN/hLM/5w==
 
 "@cobalt/css-box@^1.1.3":
   version "1.1.3"
@@ -1303,10 +1303,10 @@
     "@cobalt/react-responsive-value-hook" "^2.0.2"
     classcat "^4.0.2"
 
-"@cobalt/react-icon@^1.59.0":
-  version "1.61.0"
-  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-icon/-/react-icon-1.61.0.tgz#9a21f899bfe64af609389c6dc1a6bd05f8aa26e1"
-  integrity sha512-y5uq9H/VGy49O7EWROe68uEj8Yu8/re7Vbk9DxbnBHJzotyPbzdjQbx/nIVyEJn1xJzVIG7X4o2gUbtKFDJ+cg==
+"@cobalt/react-icon@^1.62.0":
+  version "1.62.0"
+  resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-icon/-/react-icon-1.62.0.tgz#575ddb015772a9b5c57f425be85a51cf1b529dcc"
+  integrity sha512-zXIVCEeXtH5th4Gd0bELCVfRPbLd5nzmAQ2CjPtLDB+8pOlWYkU9zyyowl/lj2JQw3lIVwYkEp/bKCbohl9sEw==
   dependencies:
     "@cobalt/css-icon" "^2.1.0"
     classcat "^4.0.2"
@@ -1354,7 +1354,7 @@
     "@cobalt/css-message" "^1.1.1"
     classcat "^4.0.2"
 
-"@cobalt/react-panel@^1.4.0":
+"@cobalt/react-panel@^1.5.0":
   version "1.5.0"
   resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-panel/-/react-panel-1.5.0.tgz#bc6e33aaf3c0a782d27697b828bede04af4da7ca"
   integrity sha512-BdvQJ8OV48Y8Y5UEjG+fS7N4u5S4EmeJCSlTCy83LapWRBhi4fof0E4riegjHBlwIAMkTIoxrOxaCnB9FrEXBw==
@@ -1390,7 +1390,7 @@
     "@cobalt/css-spinner" "^1.2.0"
     classcat "^4.0.2"
 
-"@cobalt/react-tag@^1.5.0":
+"@cobalt/react-tag@^1.5.1":
   version "1.5.1"
   resolved "https://hub.talkdeskapp.com:8443/repository/talkdesk-npm/@cobalt/react-tag/-/react-tag-1.5.1.tgz#257c038239f9d44fa2a6ea02238e2569e25eda72"
   integrity sha512-/tRaUj2gmxNpdztCyhLMB4fW7WIyrx5nxePeEbS7fUu2OhnrGRvJt9k1JMM6tE0PdBRaH4Vy4kwOQp/bnmJ6cw==
@@ -6834,7 +6834,16 @@ string-natural-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/string-natural-compare/-/string-natural-compare-3.0.1.tgz#7a42d58474454963759e8e8b7ae63d71c1e7fdf4"
   integrity sha512-n3sPwynL1nwKi3WJ6AIsClwBMa0zTi54fn2oLU6ndfTSIO05xaznjSf15PcBZU6FNWbmN5Q6cxT4V5hGvB4taw==
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -6921,7 +6930,14 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -7568,7 +7584,7 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -7581,6 +7597,15 @@ wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-6.2.0.tgz#e9393ba07102e6c91a3b221478f0257cd2856e53"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
